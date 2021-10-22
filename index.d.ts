@@ -72,7 +72,7 @@ export function component<
     ResultSet extends string
 >(
     objects: model<Subject, Object, ResultSet>[],
-    lib: libFactory<{}, {}>[] | libFactory<{}, {}>
+    lib?: libFactory<{}, {}>[] | libFactory<{}, {}>
 ): pageSet<{}, {}>[];
 
 export function validation<

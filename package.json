@@ -34,7 +34,7 @@
     "pretest": "ut-pretest",
     "preversion": "ut-preversion",
     "test": "ut-test-parallel",
-    "version": "node build && ut-portal build && ut-portal publish && git add handlers.d.ts && ut-version",
+    "version": "ut-portal build && ut-portal publish && git add handlers.d.ts && ut-version",
     "jenkins": "ut-jenkins",
     "gitlab": "ut-gitlab"
   },
