@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "tap": "^15.0.9",
+    "ut-login": "^7.15.1",
     "ut-portal": "^7.34.2",
     "ut-run": "^10.64.5",
     "ut-tools": "^6.34.2"
