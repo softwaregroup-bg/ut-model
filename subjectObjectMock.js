@@ -19,7 +19,7 @@ module.exports = ({
     function subjectObjectMock({
         lib: {
             [subjectObject]: {
-                objects: instances = trees({keyField, nameField, tenantField}),
+                objects: instances = trees({keyField, nameField: nameField.split('.').pop(), tenantField}),
                 fetch = null,
                 get = null,
                 report = null
@@ -28,7 +28,7 @@ module.exports = ({
         config: {
             mock
         } = {}
-    } = {}) {
+    }) {
         if (mock !== true && !mock?.[subjectObject]) return {};
         const byKey = criteria => instance => String(instance[keyField]) === String(criteria[keyField]);
         const find = async criteria => {
@@ -41,6 +41,7 @@ module.exports = ({
             return 0;
         };
         const filter = async criteria => {
+            console.log(criteria);
             const condition = criteria && criteria[object] && Object.entries(criteria[object]);
             const result = !condition ? instances : instances.filter(
                 instance => condition.every(

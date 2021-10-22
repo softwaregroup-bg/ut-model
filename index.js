@@ -105,7 +105,8 @@ module.exports.component = (objects, lib) => [
         const subjectObjectOpen = require('./subject.object.open').default;
         const subjectObjectNew = require('./subject.object.new').default;
         const subjectObjectReport = require('./subject.object.report').default;
-        return [].concat(
+        const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
+        return [() => ({namespace})].concat(
             lib,
             mapObjects(ut, objects, params => [
                 Edit(params),

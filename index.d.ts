@@ -25,7 +25,7 @@ type fetch<Object extends string> = (params: {
 type get<Object extends string> = (params: Record<Object, any>) => object;
 
 interface Create extends Omit<Action, 'action'> {
-    type: string;
+    type?: string;
 }
 
 interface modelObject<Subject extends string, Object extends string, ResultSet extends string> {
