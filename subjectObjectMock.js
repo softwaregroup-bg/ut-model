@@ -41,7 +41,6 @@ module.exports = ({
             return 0;
         };
         const filter = async criteria => {
-            console.log(criteria);
             const condition = criteria && criteria[object] && Object.entries(criteria[object]);
             const result = !condition ? instances : instances.filter(
                 instance => condition.every(
