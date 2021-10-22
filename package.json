@@ -1,5 +1,6 @@
 {
   "name": "ut-model",
+  "description": "Data model library",
   "version": "7.1.0",
   "main": "index.js",
   "dependencies": {
