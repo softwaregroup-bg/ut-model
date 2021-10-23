@@ -80,7 +80,11 @@ export default ({
         const BrowserComponent = async() => {
             function Browse() {
                 const [tenant, setTenant] = React.useState(null);
-                const [filter, setFilter] = React.useState(defaultFilter);
+                const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultFilter, tenantField, tenant) : defaultFilter);
+                const handleSelect = React.useCallback(value => {
+                    setTenant(value);
+                    setFilter(prev => lodashSet({...prev}, tenantField, value));
+                }, [setTenant, setFilter]);
                 const actions = React.useMemo(() => getActions(setFilter), [setFilter]);
                 return (
                     <Explorer
@@ -90,13 +94,13 @@ export default ({
                         schema={schema}
                         columns={columns}
                         details={details}
-                        filter={navigator ? {...filter, [tenantField]: tenant} : filter}
+                        filter={filter}
                         actions={actions}
                         onDropdown={onDropdown}
                     >
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}
-                            onSelect={setTenant}
+                            onSelect={handleSelect}
                             keyField='id'
                             field='title'
                             title={schema?.properties?.[tenantField]?.title || 'Tenant'}
