@@ -15,7 +15,7 @@ const defaults = (joi, {
     keyField = `${object}Id`,
     nameField = `${object}.${object}Name`,
     descriptionField = `${object}Description`,
-    tenantField = 'businessUnitId',
+    tenantField = `${object}.businessUnitId`,
     ...rest
 }) => merge({
     cards: {
