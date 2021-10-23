@@ -1,3 +1,12 @@
+## [7.1.4](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.3...v7.1.4) (2021-10-23)
+
+
+### Bug Fixes
+
+* default tenantField ([31500d1](https://github.com/softwaregroup-bg/ut-model/commit/31500d16f3c7dbc657eee379815369e41750b807))
+
+
+
 ## [7.1.3](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.2...v7.1.3) (2021-10-23)
 
 
