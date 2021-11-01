@@ -62,13 +62,13 @@ module.exports = ({
             [getMethod]: get ? get(find) : async criteria => ({[object]: await find(criteria)}),
             [add](instance) {
                 maxId += 1;
-                const result = [{
+                const result = {
                     [tenantField]: 100,
                     ...instance[object],
                     [keyField]: maxId
-                }];
+                };
                 instances.push(result);
-                return result;
+                return [result];
             },
             async [edit](edited) {
                 const result = await find({[keyField]: edited[object][keyField]});
