@@ -62,11 +62,11 @@ module.exports = ({
             [getMethod]: get ? get(find) : async criteria => ({[object]: await find(criteria)}),
             [add](instance) {
                 maxId += 1;
-                const result = {
+                const result = [{
                     ...instance[object],
                     [tenantField]: 100,
                     [keyField]: maxId
-                };
+                }];
                 instances.push(result);
                 return result;
             },
