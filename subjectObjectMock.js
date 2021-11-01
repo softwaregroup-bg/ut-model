@@ -63,8 +63,8 @@ module.exports = ({
             [add](instance) {
                 maxId += 1;
                 const result = [{
-                    ...instance[object],
                     [tenantField]: 100,
+                    ...instance[object],
                     [keyField]: maxId
                 }];
                 instances.push(result);
