@@ -63,12 +63,12 @@ module.exports = ({
             [add](instance) {
                 maxId += 1;
                 const result = {
-                    ...instance[object],
                     [tenantField]: 100,
+                    ...instance[object],
                     [keyField]: maxId
                 };
                 instances.push(result);
-                return result;
+                return [result];
             },
             async [edit](edited) {
                 const result = await find({[keyField]: edited[object][keyField]});
