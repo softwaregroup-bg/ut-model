@@ -1,3 +1,12 @@
+## [7.1.5](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.4...v7.1.5) (2021-11-02)
+
+
+### Bug Fixes
+
+* mocks ([#1](https://github.com/softwaregroup-bg/ut-model/issues/1)) ([0b1ff94](https://github.com/softwaregroup-bg/ut-model/commit/0b1ff94673258c5cca36cde5a201950bf668ca34))
+
+
+
 ## [7.1.4](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.3...v7.1.4) (2021-10-23)
 
 
