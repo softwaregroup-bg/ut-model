@@ -72,9 +72,7 @@ module.exports = ({
             },
             async [edit](edited) {
                 const result = await find({[keyField]: edited[object][keyField]});
-                return result && {
-                    [object]: Object.assign(result, edited[object])
-                };
+                return [result && Object.assign(result, edited[object])].filter(Boolean);
             },
             [remove](deleted) {
                 const result = [];

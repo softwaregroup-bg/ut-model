@@ -55,9 +55,7 @@ module.exports = ({
                 params: joi.object().keys({
                     [object]: single
                 }),
-                result: joi.object().keys({
-                    [object]: multiple
-                })
+                result: multiple
             }),
             [remove]: () => ({
                 description: `Delete ${objectTitle}`,
