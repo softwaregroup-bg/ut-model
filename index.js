@@ -19,7 +19,12 @@ const defaults = (joi, {
     ...rest
 }) => merge({
     cards: {
-        edit: {title: object, properties: [nameField, descriptionField]}
+        edit: {title: object, widgets: [nameField, descriptionField]},
+        hidden: {
+            hidden: true,
+            label: 'Hidden fields',
+            widgets: [`${object}.${keyField}`]
+        }
     },
     schema: {
         properties: {
@@ -51,7 +56,9 @@ const defaults = (joi, {
         }]
     },
     filter: {},
-    layouts: {},
+    layouts: {
+        edit: ['hidden', 'edit']
+    },
     reports: {},
     editor: {}
 }, {
