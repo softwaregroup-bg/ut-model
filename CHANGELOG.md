@@ -1,3 +1,12 @@
+# [7.2.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.5...v7.2.0) (2021-11-04)
+
+
+### Features
+
+* hidden fields defaults ([4a68445](https://github.com/softwaregroup-bg/ut-model/commit/4a684459b0a69e20b3d29006f156eb8760c64ed7))
+
+
+
 ## [7.1.5](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.4...v7.1.5) (2021-11-02)
 
 
