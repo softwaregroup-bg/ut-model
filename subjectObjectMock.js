@@ -68,11 +68,13 @@ module.exports = ({
                     [keyField]: maxId
                 };
                 instances.push(result);
-                return [result];
+                return {[object]: [result]};
             },
             async [edit](edited) {
                 const result = await find({[keyField]: edited[object][keyField]});
-                return [result && Object.assign(result, edited[object])].filter(Boolean);
+                return result && {
+                    [object]: [Object.assign(result, edited[object])]
+                };
             },
             [remove](deleted) {
                 const result = [];
