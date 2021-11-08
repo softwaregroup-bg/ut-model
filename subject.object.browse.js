@@ -13,6 +13,7 @@ export default ({
     tenantField,
     schema,
     cards,
+    details,
     browser: {
         title,
         create,
@@ -44,7 +45,6 @@ export default ({
         schema = merge({
             properties: lodashSet({}, nameField.replace(/\./g, '.properties.'), {action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())})
         }, schema);
-        const details = {[nameField]: 'Name'};
         const columns = ((cards?.browse?.widgets) || [nameField]);
         const handleFetch = (typeof fetch === 'function') ? params => objectFetch(fetch(params), utMeta()) : params => objectFetch(params, utMeta());
         const handleNavigatorFetch = params => navigatorFetch(params, utMeta());
@@ -72,6 +72,7 @@ export default ({
                 action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())
             }, {
                 title: 'Delete',
+                permission: `${subject}.${object}.delete`,
                 enabled: 'selected',
                 action: handleDelete
             }];
