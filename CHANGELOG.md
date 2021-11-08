@@ -1,3 +1,12 @@
+## [7.2.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.2.0...v7.2.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* subject.object.delete permission + optional details in browser screen #UTCORE-121 ([#3](https://github.com/softwaregroup-bg/ut-model/issues/3)) ([345347f](https://github.com/softwaregroup-bg/ut-model/commit/345347f0d36b6d686e94f5b7df00277302795560)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-model/issues/UTCORE-121)
+
+
+
 # [7.2.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.1.5...v7.2.0) (2021-11-04)
 
 
