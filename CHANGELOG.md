@@ -1,3 +1,12 @@
+# [7.3.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.2.1...v7.3.0) (2021-11-09)
+
+
+### Features
+
+* input multiple objects ([#2](https://github.com/softwaregroup-bg/ut-model/issues/2)) ([dc401cb](https://github.com/softwaregroup-bg/ut-model/commit/dc401cb8f558450627e43a0741b4ff71939bf77e))
+
+
+
 ## [7.2.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.2.0...v7.2.1) (2021-11-08)
 
 
