@@ -46,14 +46,16 @@ module.exports = ({
             [add]: () => ({
                 description: `Add ${objectTitle}`,
                 params: joi.object().keys({
-                    [object]: single
+                    [object]: [single, multiple]
                 }),
-                result: multiple
+                result: joi.object().keys({
+                    [object]: multiple
+                })
             }),
             [edit]: () => ({
                 description: `Update ${objectTitle}`,
                 params: joi.object().keys({
-                    [object]: single
+                    [object]: [single, multiple]
                 }),
                 result: joi.object().keys({
                     [object]: multiple
