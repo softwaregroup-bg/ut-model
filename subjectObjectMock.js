@@ -62,26 +62,24 @@ module.exports = ({
             [getMethod]: get ? get(find) : async criteria => ({[object]: await find(criteria)}),
             [add](instance) {
                 const objects = [].concat(instance[object]);
-                const result = [];
-                objects.forEach(obj => {
+                const result = objects.map(obj => {
                     maxId += 1;
-                    result.push({
+                    return {
                         [tenantField]: 100,
                         ...obj,
                         [keyField]: maxId
-                    });
+                    };
                 });
                 instances.push(...result);
                 return {[object]: result};
             },
             async [edit](edited) {
                 const objects = [].concat(edited[object]);
-                const result = [];
-                await Promise.all(objects.map(async i => {
+                const result = await Promise.all(objects.map(async i => {
                     const instance = await find({[keyField]: i[keyField]});
-                    if (instance) result.push(Object.assign(instance, i));
+                    if (instance) return Object.assign(instance, i);
                 }));
-                return {[object]: result};
+                return {[object]: result.filter(Boolean)};
             },
             [remove](deleted) {
                 const result = [];
