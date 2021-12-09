@@ -1,5 +1,5 @@
 import joi from 'joi'
-import {Schema, PropertyEditor, Cards, Layouts, Action} from 'ut-front-devextreme/core/types';
+import {Schema, PropertyEditor, Cards, Layouts, Action, Properties} from 'ut-front-devextreme/core/types';
 import {Props as Report} from 'ut-front-devextreme/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
 import {pageSet} from 'ut-portal';
@@ -10,6 +10,7 @@ export type model<
     ResultSet extends string = Object
 > = (joi: {joi: joi.Root}) => modelObject<Subject, Object, ResultSet>;
 export type editor = Readonly<PropertyEditor>
+export type properties = Properties
 
 type fetch<Object extends string> = (params: {
     orderBy: {
