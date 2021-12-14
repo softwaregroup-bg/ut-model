@@ -1,3 +1,7 @@
+## [7.3.2](https://github.com/softwaregroup-bg/ut-model/compare/v7.3.1...v7.3.2) (2021-12-14)
+
+
+
 ## [7.3.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.3.0...v7.3.1) (2021-12-09)
 
 
