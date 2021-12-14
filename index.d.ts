@@ -35,6 +35,7 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
     keyField?: string;
     nameField?: string;
     tenantField?: string;
+    typeField?: string;
     methods?: {
         get?: string;
         add?: string;
