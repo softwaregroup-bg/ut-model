@@ -6,6 +6,7 @@ const {capital} = require('./lib');
 const subjectObjectStep = require('./subjectObjectStep');
 const subjectObjectValidation = require('./subjectObjectValidation');
 const subjectObjectMock = require('./subjectObjectMock');
+const subjectReportRun = require('./subjectReportRun');
 
 const defaults = (joi, {
     subject,
@@ -78,7 +79,10 @@ const mapObjects = (ut, objects, mapper) => [].concat(objects).map(item => defau
 module.exports.backendMock = (objects, lib) => ({
     browser: () => [
         function backend(ut) {
-            return [].concat(lib, mapObjects(ut, objects, subjectObjectMock)).filter(Boolean);
+            const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
+            return [lib]
+                .concat(mapObjects(ut, objects, subjectObjectMock)).filter(Boolean)
+                .concat(subjects.map(subject => subjectReportRun({subject})));
         }
     ]
 });
@@ -112,9 +116,13 @@ module.exports.component = (objects, lib) => [
         const subjectObjectOpen = require('./subject.object.open').default;
         const subjectObjectNew = require('./subject.object.new').default;
         const subjectObjectReport = require('./subject.object.report').default;
+        const subjectReportOpen = require('./subject.report.open').default;
         const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
-        return [() => ({namespace})].concat(
-            lib,
+        const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
+        return [
+            () => ({namespace}),
+            lib
+        ].concat(
             mapObjects(ut, objects, params => [
                 Edit(params),
                 subjectObjectBrowse(params),
@@ -122,6 +130,8 @@ module.exports.component = (objects, lib) => [
                 subjectObjectNew(params),
                 subjectObjectReport(params)
             ]).flat(1)
+        ).concat(
+            subjects.map(subject => subjectReportOpen({subject}))
         ).filter(Boolean);
     }
 ];
