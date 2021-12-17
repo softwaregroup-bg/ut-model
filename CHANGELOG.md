@@ -1,3 +1,12 @@
+# [7.4.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.3.2...v7.4.0) (2021-12-17)
+
+
+### Features
+
+* reports #UTCORE-121 ([23423b5](https://github.com/softwaregroup-bg/ut-model/commit/23423b5223f015c19dd2c0e4eee68c25411e96d4)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-model/issues/UTCORE-121)
+
+
+
 ## [7.3.2](https://github.com/softwaregroup-bg/ut-model/compare/v7.3.1...v7.3.2) (2021-12-14)
 
 
