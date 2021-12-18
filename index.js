@@ -120,9 +120,9 @@ module.exports.component = (objects, lib) => [
         const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
         const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
         return [
-            () => ({namespace}),
-            lib
+            () => ({namespace})
         ].concat(
+            lib,
             mapObjects(ut, objects, params => [
                 Edit(params),
                 subjectObjectBrowse(params),
