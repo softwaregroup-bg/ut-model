@@ -36,7 +36,7 @@ module.exports = ({
     return {
         [keyField]: 101 + index,
         [nameField]: name,
-        ...tenantField && {[tenantField]: 100},
+        ...tenantField && {[tenantField.split('.').pop()]: 100},
         links: [{
             linkTitle: 'Wikipedia',
             linkUrl: wiki

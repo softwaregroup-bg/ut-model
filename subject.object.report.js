@@ -26,7 +26,12 @@ export default ({
                 permission: `${subject}.${object}.report`,
                 component: async({id}) => {
                     const props = {
-                        schema,
+                        schema: {
+                            properties: {
+                                params: schema.properties[object],
+                                result: schema.properties[object]
+                            }
+                        },
                         params: reports[id]?.params,
                         validation: reports[id]?.validation,
                         columns: reports[id]?.columns || cards?.browse?.properties,

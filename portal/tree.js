@@ -98,11 +98,11 @@ export const tree = ({joi}) => ({
     },
     cards: {
         browse: {
-            label: 'Access Policies',
+            label: 'Trees',
             widgets: ['tree.treeName', 'tree.treeDescription']
         },
         edit: {
-            label: 'Identification',
+            label: 'Edit Tree',
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.familyId']
         },
         morphology: {
@@ -198,9 +198,8 @@ export const tree = ({joi}) => ({
     },
     reports: {
         list: {
-            validation: joi?.object(),
-            params: ['tree.treeName', 'tree.familyId'],
-            columns: ['tree.treeName', 'tree.treeDescription'],
+            params: ['treeName', 'familyId'],
+            columns: ['treeName', 'treeDescription'],
             fetch: 'model.tree.report'
         }
     }

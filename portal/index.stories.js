@@ -33,6 +33,13 @@ const page = app({
         organization: organization.map(({value: id, label: title, ...org}) => ({id, title, ...org}))
     }),
     'model.dropdown.list': () => ({
+    }),
+    login: () => ({
+        result: {
+            'permission.get': [{
+                actionId: '%'
+            }]
+        }
     })
 }, [
     function utModel() {
