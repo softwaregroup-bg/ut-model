@@ -1,3 +1,12 @@
+## [7.4.3](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.2...v7.4.3) (2021-12-18)
+
+
+### Bug Fixes
+
+* object report ([36017cc](https://github.com/softwaregroup-bg/ut-model/commit/36017cc783efedf76cbd3d202d5f7f4d7ec842d4))
+
+
+
 ## [7.4.2](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.1...v7.4.2) (2021-12-18)
 
 
