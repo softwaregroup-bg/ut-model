@@ -1,3 +1,12 @@
+## [7.4.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.0...v7.4.1) (2021-12-18)
+
+
+### Bug Fixes
+
+* move lib ([3dea198](https://github.com/softwaregroup-bg/ut-model/commit/3dea1984b7a77ec684a1eef037e71c2e4787f349))
+
+
+
 # [7.4.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.3.2...v7.4.0) (2021-12-17)
 
 
