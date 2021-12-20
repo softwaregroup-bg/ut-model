@@ -102,7 +102,7 @@ export const tree = ({joi}) => ({
             widgets: ['tree.treeName', 'tree.treeDescription']
         },
         edit: {
-            label: 'Edit Tree',
+            label: 'Identification',
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.familyId']
         },
         morphology: {

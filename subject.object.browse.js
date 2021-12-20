@@ -78,10 +78,11 @@ export default ({
             }];
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
-        const BrowserComponent = async() => {
+        const BrowserComponent = async(pageFilter) => {
+            const defaultPageFilter = merge({}, defaultFilter, {[resultSet || object]: pageFilter});
             function Browse() {
                 const [tenant, setTenant] = React.useState(null);
-                const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultFilter, tenantField, tenant) : defaultFilter);
+                const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultPageFilter, tenantField, tenant) : defaultPageFilter);
                 const handleSelect = React.useCallback(value => {
                     setTenant(value);
                     setFilter(prev => lodashSet({...prev}, tenantField, value));
