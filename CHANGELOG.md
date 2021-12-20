@@ -1,3 +1,12 @@
+# [7.5.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.3...v7.5.0) (2021-12-20)
+
+
+### Features
+
+* browse filter ([4d81b7f](https://github.com/softwaregroup-bg/ut-model/commit/4d81b7fd34ed315c281995da0b838884d891d31c))
+
+
+
 ## [7.4.3](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.2...v7.4.3) (2021-12-18)
 
 
