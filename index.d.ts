@@ -43,6 +43,7 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         delete?: string;
     },
     browser?: {
+        title?: string;
         navigator?: boolean,
         filter?: {},
         resultSet?: ResultSet;

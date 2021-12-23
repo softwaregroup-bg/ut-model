@@ -10,7 +10,13 @@ export default ({
     },
     reports,
     schema,
-    cards
+    cards,
+    browser: {
+        fetch
+    },
+    methods: {
+        fetch: fetchMethod
+    }
 }) =>
     /** @type { import('ut-portal').pageFactory<{}, {}> } */
     function subjectObjectReport({
@@ -34,10 +40,10 @@ export default ({
                         },
                         params: reports[id]?.params,
                         validation: reports[id]?.validation,
-                        columns: reports[id]?.columns || cards?.browse?.properties,
+                        columns: reports[id]?.columns || cards?.browse?.widgets,
                         resultSet: reports?.[id]?.resultSet == null ? object : reports[id].resultSet,
                         onDropdown: names => portalDropdownList(names, utMeta()),
-                        fetch: params => utMethod(reports?.[id]?.fetch || `${subject}.${object}.fetch`)(params, utMeta())
+                        fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };
                     return function ReportComponent() {
                         return <Report {...props}/>;
