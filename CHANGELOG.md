@@ -1,3 +1,12 @@
+## [7.5.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.5.0...v7.5.1) (2021-12-23)
+
+
+### Bug Fixes
+
+* object reports ([87c5e08](https://github.com/softwaregroup-bg/ut-model/commit/87c5e08281b7657b4828d4ff53813a28edaa7573))
+
+
+
 # [7.5.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.4.3...v7.5.0) (2021-12-20)
 
 
