@@ -1,7 +1,7 @@
 {
   "name": "ut-model",
   "description": "Data model library",
-  "version": "7.5.1",
+  "version": "7.6.0",
   "main": "index.js",
   "dependencies": {
     "lodash.set": "4.3.2",

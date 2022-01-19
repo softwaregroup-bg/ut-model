@@ -1,3 +1,12 @@
+# [7.6.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.5.1...v7.6.0) (2022-01-19)
+
+
+### Features
+
+* merge API definition from server ([178a514](https://github.com/softwaregroup-bg/ut-model/commit/178a51467e96b0aec627523f8aeb7ebdb75e9f6b))
+
+
+
 ## [7.5.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.5.0...v7.5.1) (2021-12-23)
 
 
