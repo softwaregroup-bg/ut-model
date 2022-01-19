@@ -40,6 +40,9 @@ export default ({
             [`component/${subject}.${object}.open`]: objectOpen,
             [fetchMethod]: objectFetch,
             [deleteMethod]: objectDelete
+        },
+        lib: {
+            [`${subject}Api`]: subjectApi
         }
     }) {
         schema = merge({
@@ -79,7 +82,10 @@ export default ({
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
         const BrowserComponent = async(pageFilter) => {
-            const defaultPageFilter = merge({}, defaultFilter, {[resultSet || object]: pageFilter});
+            const api = await subjectApi(fetchMethod);
+            const resultSetName = resultSet || object;
+            const mergedSchema = merge({}, {properties: {[resultSetName]: api?.result?.properties?.[resultSetName]?.items}}, schema);
+            const defaultPageFilter = merge({}, defaultFilter, {[resultSetName]: pageFilter});
             function Browse() {
                 const [tenant, setTenant] = React.useState(null);
                 const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultPageFilter, tenantField, tenant) : defaultPageFilter);
@@ -91,9 +97,9 @@ export default ({
                 return (
                     <Explorer
                         fetch={(!navigator || tenant != null) && handleFetch}
-                        resultSet={resultSet || object}
+                        resultSet={resultSetName}
                         keyField={keyField}
-                        schema={schema}
+                        schema={mergedSchema}
                         columns={columns}
                         details={details}
                         filter={filter}
@@ -105,7 +111,7 @@ export default ({
                             onSelect={handleSelect}
                             keyField='id'
                             field='title'
-                            title={schema?.properties?.[tenantField]?.title || 'Tenant'}
+                            title={mergedSchema?.properties?.[tenantField]?.title || 'Tenant'}
                             resultSet='organization'
                         />}
                     </Explorer>

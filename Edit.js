@@ -1,6 +1,7 @@
 // @ts-check
 import React from 'react';
 import Editor from 'ut-front-devextreme/core/Editor';
+import merge from 'ut-function.merge';
 
 export default ({
     subject,
@@ -29,15 +30,18 @@ export default ({
             portalDropdownList
         },
         lib: {
+            [`${subject}Api`]: subjectApi,
             editors
         }
     }) {
         return {
-            editor({id, type, layout: layoutName = type}) {
+            async editor({id, type, layout: layoutName = type}) {
+                const api = await subjectApi(get);
+                const mergedSchema = merge({}, api?.result, schema);
                 const props = {
                     object,
                     id,
-                    schema,
+                    schema: mergedSchema,
                     editors,
                     type,
                     typeField,

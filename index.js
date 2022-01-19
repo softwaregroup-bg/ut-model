@@ -7,6 +7,8 @@ const subjectObjectStep = require('./subjectObjectStep');
 const subjectObjectValidation = require('./subjectObjectValidation');
 const subjectObjectMock = require('./subjectObjectMock');
 const subjectReportRun = require('./subjectReportRun');
+const subjectApi = require('./subjectApi');
+const subjectApiMock = require('./subjectApiMock');
 
 const defaults = (joi, {
     subject,
@@ -82,7 +84,8 @@ module.exports.backendMock = (objects, lib) => ({
             const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
             return [lib]
                 .concat(mapObjects(ut, objects, subjectObjectMock)).filter(Boolean)
-                .concat(subjects.map(subject => subjectReportRun({subject})));
+                .concat(subjects.map(subject => subjectReportRun({subject})))
+                .concat(subjects.map(subject => subjectApiMock({subject})));
         }
     ]
 });
@@ -122,6 +125,8 @@ module.exports.component = (objects, lib) => [
         return [
             () => ({namespace})
         ].concat(
+            subjects.map(subject => subjectApi({subject}))
+        ).concat(
             lib,
             mapObjects(ut, objects, params => [
                 Edit(params),
