@@ -6,6 +6,7 @@ import merge from 'ut-function.merge';
 export default ({
     subject,
     object,
+    subjectObject,
     keyField,
     typeField,
     schema,
@@ -50,6 +51,7 @@ export default ({
                     layoutName,
                     keyField,
                     resultSet,
+                    name: subjectObject,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onAdd: params => objectAdd(params, utMeta()),
                     onGet: params => objectGet(params, utMeta()),
