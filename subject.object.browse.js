@@ -109,10 +109,10 @@ export default ({
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}
                             onSelect={handleSelect}
-                            keyField='id'
-                            field='title'
+                            keyField={navigator?.key || 'id'}
+                            field={navigator?.title || 'title'}
                             title={mergedSchema?.properties?.[tenantField]?.title || 'Tenant'}
-                            resultSet='organization'
+                            resultSet={navigator?.resultSet || 'organization'}
                         />}
                     </Explorer>
                 );

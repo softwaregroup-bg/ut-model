@@ -41,10 +41,15 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         add?: string;
         fetch?: string;
         delete?: string;
+        navigatorFetch?: string;
     },
     browser?: {
         title?: string;
-        navigator?: boolean,
+        navigator?: boolean | {
+            resultSet?: string;
+            key?: string;
+            title?: string;
+        },
         filter?: {},
         resultSet?: ResultSet;
         fetch?: fetch<ResultSet>;
