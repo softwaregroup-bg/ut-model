@@ -1,3 +1,12 @@
+# [7.7.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.6.2...v7.7.0) (2022-02-08)
+
+
+### Features
+
+* navigator customization ([4eadb05](https://github.com/softwaregroup-bg/ut-model/commit/4eadb05746d797f1a17935eb6c8e1b2be4b793aa))
+
+
+
 ## [7.6.2](https://github.com/softwaregroup-bg/ut-model/compare/v7.6.1...v7.6.2) (2022-01-24)
 
 
