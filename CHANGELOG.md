@@ -1,3 +1,12 @@
+## [7.7.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.7.0...v7.7.1) (2022-02-09)
+
+
+### Bug Fixes
+
+* paging is optional ([68a5982](https://github.com/softwaregroup-bg/ut-model/commit/68a59825cc9548f4d29e160ccf168e697a287943))
+
+
+
 # [7.7.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.6.2...v7.7.0) (2022-02-08)
 
 
