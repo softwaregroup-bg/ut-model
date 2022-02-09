@@ -50,7 +50,7 @@ module.exports = ({
             if (Array.isArray(criteria.orderBy) && criteria.orderBy.length) result.sort(compare(criteria.orderBy[0]));
             await new Promise((resolve, reject) => setTimeout(resolve, 100));
             return Promise.resolve({
-                [object]: result.slice((criteria.paging.pageNumber - 1) * criteria.paging.pageSize, criteria.paging.pageNumber * criteria.paging.pageSize),
+                [object]: criteria.paging ? result.slice((criteria.paging.pageNumber - 1) * criteria.paging.pageSize, criteria.paging.pageNumber * criteria.paging.pageSize) : [...result],
                 pagination: {
                     recordsTotal: result.length
                 }
