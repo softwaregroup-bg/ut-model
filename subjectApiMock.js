@@ -1,6 +1,6 @@
 module.exports = ({
     subject
-}) =>
+}, api) =>
     /** @type { import('ut-run').handlerFactory<{}, {}, {}> } */
     function subjectApiMock({
         config: {
@@ -9,6 +9,6 @@ module.exports = ({
     }) {
         if (mock !== true && !mock?.[subject]) return {};
         return {
-            [`${subject}.api.get`]: () => ({paths: {}})
+            [`${subject}.api.get`]: () => api || ({paths: {}})
         };
     };

@@ -71,7 +71,8 @@ export function backendMock<
     ResultSet extends string
 >(
     objects: model<Subject, Object, ResultSet>[],
-    lib: libFactory<{}, {}>[] | libFactory<{}, {}>
+    lib: libFactory<{}, {}>[] | libFactory<{}, {}>,
+    api?: {}
 ): handlerSet<{}, {}, {}>;
 
 export function component<
