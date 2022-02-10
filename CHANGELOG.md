@@ -1,3 +1,12 @@
+# [7.8.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.7.1...v7.8.0) (2022-02-10)
+
+
+### Features
+
+* pass api definition to mock ([934f1f0](https://github.com/softwaregroup-bg/ut-model/commit/934f1f0807e47cb1329ef1dac055ac16541fad56))
+
+
+
 ## [7.7.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.7.0...v7.7.1) (2022-02-09)
 
 
