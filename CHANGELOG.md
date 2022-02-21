@@ -1,3 +1,12 @@
+## [7.8.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.8.0...v7.8.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* resultSet handling in mocks ([990e9df](https://github.com/softwaregroup-bg/ut-model/commit/990e9df85fc8bfa43f49131281c2154dd6c82bfd))
+
+
+
 # [7.8.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.7.1...v7.8.0) (2022-02-10)
 
 
