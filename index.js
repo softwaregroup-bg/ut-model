@@ -54,6 +54,7 @@ const defaults = (joi, {
     },
     browser: {
         title: rest.cards?.browse?.title || `${objectTitle} list`,
+        resultSet: object,
         create: [{
             title: 'Create'
         }]
@@ -63,7 +64,9 @@ const defaults = (joi, {
         edit: ['hidden', 'edit']
     },
     reports: {},
-    editor: {}
+    editor: {
+        resultSet: object
+    }
 }, {
     subject,
     object,
@@ -123,10 +126,10 @@ module.exports.component = (objects, lib) => [
         const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
         const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
         return [
-            () => ({namespace})
         ].concat(
             subjects.map(subject => subjectApi({subject}))
         ).concat(
+            () => ({namespace}),
             lib,
             mapObjects(ut, objects, params => [
                 Edit(params),

@@ -6,6 +6,8 @@ module.exports = ({
     keyField,
     nameField,
     tenantField,
+    browser,
+    editor,
     methods: {
         fetch: fetchMethod,
         get: getMethod,
@@ -50,7 +52,7 @@ module.exports = ({
             if (Array.isArray(criteria.orderBy) && criteria.orderBy.length) result.sort(compare(criteria.orderBy[0]));
             await new Promise((resolve, reject) => setTimeout(resolve, 100));
             return Promise.resolve({
-                [object]: criteria.paging ? result.slice((criteria.paging.pageNumber - 1) * criteria.paging.pageSize, criteria.paging.pageNumber * criteria.paging.pageSize) : [...result],
+                [browser.resultSet]: criteria.paging ? result.slice((criteria.paging.pageNumber - 1) * criteria.paging.pageSize, criteria.paging.pageNumber * criteria.paging.pageSize) : [...result],
                 pagination: {
                     recordsTotal: result.length
                 }
@@ -59,9 +61,9 @@ module.exports = ({
         let maxId = instances.reduce((max, instance) => Math.max(max, Number(instance[keyField])), 0);
         return {
             [fetchMethod]: fetch ? fetch(filter) : filter,
-            [getMethod]: get ? get(find) : async criteria => ({[object]: await find(criteria)}),
+            [getMethod]: get ? get(find) : async criteria => ({[editor.resultSet]: await find(criteria)}),
             [add](instance) {
-                const objects = [].concat(instance[object]);
+                const objects = [].concat(instance[editor.resultSet]);
                 const result = objects.map(obj => {
                     maxId += 1;
                     return {
@@ -71,15 +73,15 @@ module.exports = ({
                     };
                 });
                 instances.push(...result);
-                return {[object]: result};
+                return {[editor.resultSet]: result};
             },
             async [edit](edited) {
-                const objects = [].concat(edited[object]);
+                const objects = [].concat(edited[editor.resultSet]);
                 const result = await Promise.all(objects.map(async i => {
                     const instance = await find({[keyField]: i[keyField]});
                     if (instance) return Object.assign(instance, i);
                 }));
-                return {[object]: result.filter(Boolean)};
+                return {[editor.resultSet]: result.filter(Boolean)};
             },
             [remove](deleted) {
                 const result = [];

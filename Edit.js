@@ -38,7 +38,11 @@ export default ({
         return {
             async editor({id, type, layout: layoutName = type}) {
                 const api = await subjectApi(get);
-                const mergedSchema = merge({}, api?.result, schema);
+                const mergedSchema = merge({}, {
+                    properties: {
+                        [resultSet]: api?.result?.properties?.[resultSet].items
+                    }
+                }, api?.result, schema);
                 const props = {
                     object,
                     id,
