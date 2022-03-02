@@ -21,7 +21,12 @@ export default ({
         fetch,
         delete: remove,
         resultSet,
-        navigator
+        navigator,
+        permission: {
+            add: addPermission,
+            edit: editPermission,
+            delete: deletePermission
+        }
     },
     methods: {
         fetch: fetchMethod = 'fetch',
@@ -29,7 +34,7 @@ export default ({
         navigatorFetch: navigatorFetchMethod = 'customerOrganizationGraphFetch'
     }
 }) =>
-    /** @type { import('ut-portal').pageFactory<{}, {}> } */
+    /** @type { import('ut-portal/handlers').pageFactory<{}, {}> } */
     function subjectObjectBrowse({
         utMeta,
         import: {
@@ -62,7 +67,7 @@ export default ({
             };
             return [...create.map(({
                 type,
-                permission = `${subject}.${object}.add`,
+                permission = addPermission,
                 ...rest
             }) => ({
                 action: () => type ? handleTabShow([objectNew, {type}], utMeta()) : handleTabShow(objectNew, utMeta()),
@@ -70,12 +75,12 @@ export default ({
                 ...rest
             })), {
                 title: 'Edit',
-                permission: `${subject}.${object}.edit`,
+                permission: editPermission,
                 enabled: 'current',
                 action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())
             }, {
                 title: 'Delete',
-                permission: `${subject}.${object}.delete`,
+                permission: deletePermission,
                 enabled: 'selected',
                 action: handleDelete
             }];

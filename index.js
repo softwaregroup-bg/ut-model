@@ -57,7 +57,12 @@ const defaults = (joi, {
         resultSet: object,
         create: [{
             title: 'Create'
-        }]
+        }],
+        permission: {
+            add: `${subject}.${object}.add`,
+            delete: `${subject}.${object}.delete`,
+            edit: `${subject}.${object}.edit`
+        }
     },
     filter: {},
     layouts: {

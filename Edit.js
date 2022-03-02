@@ -21,7 +21,7 @@ export default ({
         get
     }
 }) =>
-    /** @type { import('ut-portal').libFactory } */
+    /** @type { import('ut-portal/handlers').libFactory } */
     function ObjectEditor({
         utMeta,
         import: {
@@ -40,7 +40,7 @@ export default ({
                 const api = await subjectApi(get);
                 const mergedSchema = merge({}, {
                     properties: {
-                        [resultSet]: api?.result?.properties?.[resultSet].items
+                        [resultSet]: api?.result?.properties?.[resultSet]?.items
                     }
                 }, api?.result, schema);
                 const props = {

@@ -2,7 +2,7 @@ import joi from 'joi'
 import {Schema, PropertyEditor, Cards, Layouts, Action, Properties} from 'ut-front-devextreme/core/types';
 import {Props as Report} from 'ut-front-devextreme/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
-import {pageSet} from 'ut-portal';
+import type {pageSet} from 'ut-portal/handlers';
 
 export type model<
     Subject extends string,
@@ -50,6 +50,11 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
             key?: string;
             title?: string;
         },
+        permission?: {
+            add?: boolean | string;
+            delete?: boolean | string;
+            edit?: boolean | string;
+        }
         filter?: {},
         resultSet?: ResultSet;
         fetch?: fetch<ResultSet>;
