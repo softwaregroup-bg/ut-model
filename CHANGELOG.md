@@ -1,3 +1,12 @@
+# [7.9.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.8.1...v7.9.0) (2022-03-02)
+
+
+### Features
+
+* browser button permissions ([3bfb2a4](https://github.com/softwaregroup-bg/ut-model/commit/3bfb2a40143f0b1cbaf1dc23406c666efda7766a))
+
+
+
 ## [7.8.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.8.0...v7.8.1) (2022-02-21)
 
 
