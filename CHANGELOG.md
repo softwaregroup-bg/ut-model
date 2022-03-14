@@ -1,3 +1,12 @@
+# [7.10.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.9.0...v7.10.0) (2022-03-14)
+
+
+### Features
+
+* expose api imports to components ([#4](https://github.com/softwaregroup-bg/ut-model/issues/4)) ([d3cabf7](https://github.com/softwaregroup-bg/ut-model/commit/d3cabf788adf7eb97d07efa1c70c95b3dcce96ad))
+
+
+
 # [7.9.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.8.1...v7.9.0) (2022-03-02)
 
 
