@@ -35,6 +35,7 @@ export default ({
             editors
         }
     }) {
+        const methods = arguments[0].import;
         return {
             async editor({id, type, layout: layoutName = type}) {
                 const api = await subjectApi(get);
@@ -56,6 +57,7 @@ export default ({
                     keyField,
                     resultSet,
                     name: subjectObject,
+                    methods,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onAdd: params => objectAdd(params, utMeta()),
                     onGet: params => objectGet(params, utMeta()),
