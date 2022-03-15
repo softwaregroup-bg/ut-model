@@ -1,3 +1,13 @@
+## [7.10.1](https://github.com/softwaregroup-bg/ut-model/compare/v7.10.0...v7.10.1) (2022-03-15)
+
+
+### Bug Fixes
+
+* merge schema for reports ([84e0e66](https://github.com/softwaregroup-bg/ut-model/commit/84e0e667f53b70bcb34bef8434a502c307c6fd3b))
+* support non jsonrpc response ([fb534de](https://github.com/softwaregroup-bg/ut-model/commit/fb534de0113747225eb9826e2b648c8dd8135c82))
+
+
+
 # [7.10.0](https://github.com/softwaregroup-bg/ut-model/compare/v7.9.0...v7.10.0) (2022-03-14)
 
 
