@@ -3,7 +3,7 @@ const cache = {};
 module.exports = ({
     subject
 }) =>
-    /** @type { import('ut-portal').libFactory } */
+    /** @type { import('ut-portal/handlers').libFactory } */
     function subjectApi({
         utMeta,
         import: {
@@ -23,7 +23,11 @@ module.exports = ({
                     if (method.operationId) {
                         params[method.operationId] = {};
                         const schema = method?.parameters?.find(({in: where}) => where === 'body');
-                        if (schema?.schema?.properties?.params) params[method.operationId].params = schema?.schema?.properties?.params;
+                        if (schema?.schema?.properties?.jsonrpc) {
+                            if (schema?.schema?.properties?.params) params[method.operationId].params = schema.schema.properties.params;
+                        } else {
+                            if (schema?.schema) params[method.operationId].params = schema.schema;
+                        }
                         params[method.operationId].result = method?.responses?.['200']?.schema?.properties?.result;
                     }
                 })
