@@ -1,6 +1,7 @@
 // @ts-check
 import React from 'react';
 import Report from 'ut-front-devextreme/core/Report';
+import merge from 'ut-function.merge';
 
 export default ({
     subject,
@@ -24,6 +25,9 @@ export default ({
         utMethod,
         import: {
             portalDropdownList
+        },
+        lib: {
+            [`${subject}Api`]: subjectApi
         }
     }) {
         return {
@@ -31,11 +35,14 @@ export default ({
                 title,
                 permission: `${subject}.${object}.report`,
                 component: async({id}) => {
+                    const api = await subjectApi(fetchMethod);
+                    const resultSchema = merge({}, {properties: {[object]: api?.result?.properties?.[object]?.items}}, schema);
+                    const paramsSchema = merge({}, {properties: {[object]: api?.params?.properties?.[object]}}, schema);
                     const props = {
                         schema: {
                             properties: {
-                                params: schema.properties[object],
-                                result: schema.properties[object]
+                                params: paramsSchema.properties[object],
+                                result: resultSchema.properties[object]
                             }
                         },
                         params: reports[id]?.params,
