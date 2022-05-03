@@ -1,7 +1,7 @@
 // @ts-check
 import React from 'react';
-import Explorer from 'ut-front-devextreme/core/Explorer';
-import Navigator from 'ut-front-devextreme/core/Navigator';
+import Explorer from 'ut-prime/core/Explorer';
+import Navigator from 'ut-prime/core/Navigator';
 import merge from 'ut-function.merge';
 import lodashSet from 'lodash.set';
 

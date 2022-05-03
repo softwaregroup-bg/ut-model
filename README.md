@@ -84,8 +84,8 @@ Then these functions return an object with the following properties:
     pass `'lg:col-6 xl:col-4'` for `className`
 
   For more information check the component
-  [Editor](https://github.com/softwaregroup-bg/ut-front-devextreme/tree/master/src/components/Editor)
-  in `ut-front-devextreme`.
+  [Editor](https://github.com/softwaregroup-bg/ut-prime/tree/master/src/components/Editor)
+  in `ut-prime`.
 - `layouts` - an object, which describes named groups of cards. Each property
   of this object describes one layout as an array of card names or as a tree
   structure. Layouts are an abstraction for configuring the layout of predefined

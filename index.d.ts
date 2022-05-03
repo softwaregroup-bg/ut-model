@@ -1,6 +1,6 @@
 import joi from 'joi'
-import {Schema, PropertyEditor, Cards, Layouts, Action, Properties} from 'ut-front-devextreme/core/types';
-import {Props as Report} from 'ut-front-devextreme/core/Report/Report.types';
+import {Schema, PropertyEditor, Cards, Layouts, Action, Properties} from 'ut-prime/core/types';
+import {Props as Report} from 'ut-prime/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
 import type {pageSet} from 'ut-portal/handlers';
 
@@ -39,6 +39,7 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
     methods?: {
         get?: string;
         add?: string;
+        edit?: string;
         fetch?: string;
         delete?: string;
         navigatorFetch?: string;

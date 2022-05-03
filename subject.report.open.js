@@ -1,6 +1,6 @@
 // @ts-check
 import React from 'react';
-import Report from 'ut-front-devextreme/core/Report';
+import Report from 'ut-prime/core/Report';
 
 export default ({
     subject

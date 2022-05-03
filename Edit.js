@@ -1,6 +1,6 @@
 // @ts-check
 import React from 'react';
-import Editor from 'ut-front-devextreme/core/Editor';
+import Editor from 'ut-prime/core/Editor';
 import merge from 'ut-function.merge';
 
 export default ({
