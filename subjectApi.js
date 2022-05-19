@@ -15,7 +15,7 @@ module.exports = ({
             const api = await subjectApiGet({
                 $http: {
                     httpMethod: 'GET',
-                    uri: `/api/${subject}/swagger.json`
+                    uri: `/aa/api/${subject}/swagger.json`
                 }
             }, utMeta());
             Object.values(api.paths).forEach(path =>
