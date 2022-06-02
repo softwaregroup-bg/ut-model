@@ -1,3 +1,12 @@
+## [8.0.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.0.2...v8.0.3) (2022-06-02)
+
+
+### Bug Fixes
+
+* remove nameField type #UTCORE-121 ([0ed893c](https://github.com/softwaregroup-bg/ut-model/commit/0ed893c3bb93ddc6ee5ab26008cf7d9056e9a759)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-model/issues/UTCORE-121)
+
+
+
 ## [8.0.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.0.1...v8.0.2) (2022-05-19)
 
 
