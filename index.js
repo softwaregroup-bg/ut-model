@@ -35,7 +35,7 @@ const defaults = (joi, {
                 properties: {
                     [keyField]: {title: 'key', validation: joi && joi.any()},
                     [tenantField]: {title: 'Tenant', validation: joi && joi.any()},
-                    [nameField.split('.').pop()]: {title: `${capital(object)} Name`, filter: true, sort: true, type: 'string'},
+                    [nameField.split('.').pop()]: {title: `${capital(object)} Name`, filter: true, sort: true},
                     [descriptionField]: {title: `${capital(object)} Description`, filter: true, editor: {type: 'text'}}
                 }
             }
