@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 const treeFamily = [
     {value: 10, label: 'Adoxaceae'},
     {value: 11, label: 'Araliaceae'},
@@ -36,7 +37,24 @@ export const tree = ({joi}) => ({
         }, {
             title: 'Add broadleaf',
             type: 'broadleaf'
-        }]
+        }],
+        permission: {
+            delete: false
+        },
+        toolbar: [{
+            title: 'Template',
+            enabled: true,
+            action: 'model.tree.new',
+            params: {tree: {treeName: 'New tree', treeDescription: 'Tree description...', familyId: 20}}
+        }, {
+            title: 'Delete',
+            enabled: 'current',
+            action: 'model.tree.open',
+            params: {id: '${id}', layout: 'delete'}
+        }],
+        table: {
+            selectionMode: 'single'
+        }
     },
     schema: {
         properties: {
@@ -93,17 +111,45 @@ export const tree = ({joi}) => ({
                     }
                 },
                 widget: {type: 'table'}
+            },
+            reason: {
+                widget: {
+                    type: 'text'
+                }
             }
         }
+    },
+    deleteMethods: {
+        edit: 'model.tree.delete'
     },
     cards: {
         browse: {
             label: 'Trees',
             widgets: ['tree.treeName', 'tree.treeDescription']
         },
+        toolbar: {
+            widgets: [{
+                type: 'button',
+                label: 'Browse',
+                action: 'model.tree.browse',
+                params: {}
+            }, {
+                type: 'button',
+                label: 'Report',
+                action: 'model.tree.report',
+                params: {id: 'list'}
+            }]
+        },
         edit: {
             label: 'Identification',
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.familyId']
+        },
+        editDelete: {
+            label: 'Identification',
+            widgets: [{
+                name: 'tree.treeName',
+                disabled: true
+            }, 'reason']
         },
         morphology: {
             label: 'Morphology',
@@ -160,6 +206,7 @@ export const tree = ({joi}) => ({
         editNested: ['edit', ['cone', 'fruit']],
         edit3col: ['col1', 'col2', 'col3'],
         editThumbIndex: [{
+            id: 'main',
             icon: 'pi pi-file',
             items: [{
                 label: 'Main',
@@ -177,18 +224,21 @@ export const tree = ({joi}) => ({
                 ]
             }]
         }, {
+            id: 'images',
             icon: 'pi pi-images',
             items: [{
                 label: 'Images',
                 widgets: ['images']
             }]
         }, {
+            id: 'misc',
             icon: 'pi pi-map',
             items: [{
                 label: 'Habitat',
                 widgets: ['map']
             }]
         }, {
+            id: 'links',
             icon: 'pi pi-paperclip',
             items: [{
                 label: 'Links',

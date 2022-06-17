@@ -19,7 +19,8 @@ export default ({
         add,
         edit,
         get
-    }
+    },
+    ...rest
 }) =>
     /** @type { import('ut-portal/handlers').libFactory } */
     function ObjectEditor({
@@ -37,13 +38,17 @@ export default ({
     }) {
         const methods = arguments[0].import;
         return {
-            async editor({id, type, layout: layoutName = type}) {
+            async editor({id, type, layout: layoutName = type, ...init}) {
                 const api = await subjectApi(get);
                 const mergedSchema = merge({}, {
                     properties: {
                         [resultSet]: api?.result?.properties?.[resultSet]?.items
                     }
                 }, api?.result, schema);
+                const layoutMethods = layoutName && rest[`${layoutName}Methods`];
+                const handleAdd = layoutMethods?.add ? methods[layoutMethods.add] : objectAdd;
+                const handleGet = layoutMethods?.get ? methods[layoutMethods.get] : objectGet;
+                const handleEdit = layoutMethods?.edit ? methods[layoutMethods.edit] : objectEdit;
                 const props = {
                     object,
                     id,
@@ -58,10 +63,11 @@ export default ({
                     resultSet,
                     name: subjectObject,
                     methods,
+                    init,
                     onDropdown: names => portalDropdownList(names, utMeta()),
-                    onAdd: params => objectAdd(params, utMeta()),
-                    onGet: params => objectGet(params, utMeta()),
-                    onEdit: params => objectEdit(params, utMeta())
+                    onAdd: params => handleAdd(params, utMeta()),
+                    onGet: params => handleGet(params, utMeta()),
+                    onEdit: params => handleEdit(params, utMeta())
                 };
                 return function Edit() {
                     return <Editor {...props}/>;

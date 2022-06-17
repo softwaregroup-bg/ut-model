@@ -58,13 +58,13 @@ const defaults = (joi, {
         create: [{
             title: 'Create'
         }],
+        toolbar: [],
         permission: {
             add: `${subject}.${object}.add`,
             delete: `${subject}.${object}.delete`,
             edit: `${subject}.${object}.edit`
         }
     },
-    filter: {},
     layouts: {
         edit: ['hidden', 'edit']
     },

@@ -1,6 +1,7 @@
 import joi from 'joi'
-import {Schema, PropertyEditor, Cards, Layouts, Action, Properties} from 'ut-prime/core/types';
-import {Props as Report} from 'ut-prime/core/Report/Report.types';
+import type {Schema, PropertyEditor, Cards, Layouts, Action, Properties, DataTable} from 'ut-prime/core/types';
+import type {Props as ActionButtonProps} from 'ut-prime/core/ActionButton/ActionButton.types';
+import {Props as ReportProps} from 'ut-prime/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
 import type {pageSet} from 'ut-portal/handlers';
 
@@ -44,6 +45,14 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         delete?: string;
         navigatorFetch?: string;
     },
+    [name: `${string}Methods`]: {
+        get?: string;
+        add?: string;
+        edit?: string;
+        fetch?: string;
+        delete?: string;
+        navigatorFetch?: string;
+    },
     browser?: {
         title?: string;
         navigator?: boolean | {
@@ -60,7 +69,9 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         resultSet?: ResultSet;
         fetch?: fetch<ResultSet>;
         get?: get<ResultSet>;
-        create?: Create[]
+        create?: Create[],
+        toolbar?: Omit<ActionButtonProps, 'getValues'>[],
+        table?: DataTable
     },
     editor?: {
 
@@ -68,7 +79,7 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
     schema: Schema,
     cards?: Cards,
     layouts?: Layouts,
-    reports?: Record<string, Partial<Pick<Report, 'columns' | 'params' | 'validation' | 'resultSet'>> & {fetch?: string}>
+    reports?: Record<string, Partial<Pick<ReportProps, 'columns' | 'params' | 'validation' | 'resultSet'>> & {fetch?: string}>
 }
 
 export function backendMock<

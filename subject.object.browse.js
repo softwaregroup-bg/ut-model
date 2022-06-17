@@ -22,6 +22,8 @@ export default ({
         delete: remove,
         resultSet,
         navigator,
+        toolbar,
+        table,
         permission: {
             add: addPermission,
             edit: editPermission,
@@ -83,7 +85,7 @@ export default ({
                 permission: deletePermission,
                 enabled: 'selected',
                 action: handleDelete
-            }];
+            }, ...toolbar.map(button => ({enabled: 'current', ...button}))];
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
         const BrowserComponent = async(pageFilter) => {
@@ -98,7 +100,7 @@ export default ({
                     setTenant(value);
                     setFilter(prev => lodashSet({...prev}, tenantField, value));
                 }, [setTenant, setFilter]);
-                const actions = React.useMemo(() => getActions(setFilter), [setFilter]);
+                const toolbar = React.useMemo(() => getActions(setFilter), [setFilter]);
                 return (
                     <Explorer
                         fetch={(!navigator || tenant != null) && handleFetch}
@@ -108,8 +110,9 @@ export default ({
                         columns={columns}
                         details={details}
                         filter={filter}
-                        actions={actions}
+                        toolbar={toolbar}
                         onDropdown={onDropdown}
+                        table={table}
                     >
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}
