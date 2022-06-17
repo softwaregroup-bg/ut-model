@@ -1,3 +1,12 @@
+# [8.1.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.0.3...v8.1.0) (2022-06-17)
+
+
+### Features
+
+* toolbars and methods ([2752b56](https://github.com/softwaregroup-bg/ut-model/commit/2752b563f2fda49acdcb5225a230b593f55a7c82))
+
+
+
 ## [8.0.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.0.2...v8.0.3) (2022-06-02)
 
 
