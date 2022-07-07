@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "tap": "^16.2.0",
+    "ut-browser": "^7.7.4",
     "ut-login": "^7.19.2",
     "ut-port-script": "^7.2.0",
     "ut-portal": "^9.1.7",
