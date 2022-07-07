@@ -1,3 +1,12 @@
+# [8.2.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.1.0...v8.2.0) (2022-07-07)
+
+
+### Features
+
+* init handler ([2bb8290](https://github.com/softwaregroup-bg/ut-model/commit/2bb82908def7880ba2481f274fa8cce8540272d3))
+
+
+
 # [8.1.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.0.3...v8.1.0) (2022-06-17)
 
 
