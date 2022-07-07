@@ -11,6 +11,7 @@ module.exports = ({
     methods: {
         fetch: fetchMethod,
         get: getMethod,
+        init,
         add,
         edit,
         delete: remove,
@@ -62,6 +63,7 @@ module.exports = ({
         return {
             [fetchMethod]: fetch ? fetch(filter) : filter,
             [getMethod]: get ? get(find) : async criteria => ({[editor.resultSet]: await find(criteria)}),
+            [init]: params => params,
             [add](instance) {
                 const objects = [].concat(instance[editor.resultSet]);
                 const result = objects.map(obj => {

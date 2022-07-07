@@ -16,6 +16,7 @@ export default ({
         resultSet
     },
     methods: {
+        init: initMethod,
         add,
         edit,
         get
@@ -49,6 +50,7 @@ export default ({
                 const handleAdd = layoutMethods?.add ? methods[layoutMethods.add] : objectAdd;
                 const handleGet = layoutMethods?.get ? methods[layoutMethods.get] : objectGet;
                 const handleEdit = layoutMethods?.edit ? methods[layoutMethods.edit] : objectEdit;
+                const handleInit = layoutMethods?.init ? methods[layoutMethods?.init] : initMethod && methods[initMethod];
                 const props = {
                     object,
                     id,
@@ -65,6 +67,7 @@ export default ({
                     methods,
                     init,
                     onDropdown: names => portalDropdownList(names, utMeta()),
+                    onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
                     onAdd: params => handleAdd(params, utMeta()),
                     onGet: params => handleGet(params, utMeta()),
                     onEdit: params => handleEdit(params, utMeta())
