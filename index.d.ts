@@ -1,5 +1,5 @@
 import joi from 'joi'
-import type {Schema, PropertyEditor, Cards, Layouts, Action, Properties, DataTable} from 'ut-prime/core/types';
+import type {Schema, PropertyEditor, Cards, Layouts, Layout, Action, Properties, DataTable, DataView} from 'ut-prime/core/types';
 import type {Props as ActionButtonProps} from 'ut-prime/core/ActionButton/ActionButton.types';
 import {Props as ReportProps} from 'ut-prime/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
@@ -33,6 +33,7 @@ interface Create extends Omit<Action, 'action'> {
 interface modelObject<Subject extends string, Object extends string, ResultSet extends string> {
     subject: Subject;
     object: Object;
+    objectTitle: string;
     keyField?: string;
     nameField?: string;
     tenantField?: string;
@@ -71,7 +72,9 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         get?: get<ResultSet>;
         create?: Create[],
         toolbar?: Omit<ActionButtonProps, 'getValues'>[],
-        table?: DataTable
+        table?: DataTable,
+        view?: DataView,
+        layout?: Layout
     },
     editor?: {
 

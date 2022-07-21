@@ -13,6 +13,7 @@ export default ({
     tenantField,
     schema,
     cards,
+    layouts,
     details,
     browser: {
         title,
@@ -24,6 +25,8 @@ export default ({
         navigator,
         toolbar,
         table,
+        view,
+        layout,
         permission: {
             add: addPermission,
             edit: editPermission,
@@ -49,12 +52,15 @@ export default ({
             [deleteMethod]: objectDelete
         },
         lib: {
+            editors,
             [`${subject}Api`]: subjectApi
         }
     }) {
-        schema = merge({
-            properties: lodashSet({}, nameField.replace(/\./g, '.properties.'), {action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())})
-        }, schema);
+        const methods = arguments[0].import;
+        const defaultSchema = {properties: {}};
+        if (nameField) lodashSet(defaultSchema.properties, nameField.replace(/\./g, '.properties.'), {action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())});
+        if (keyField) lodashSet(defaultSchema.properties, keyField.replace(/\./g, '.properties.'), {action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())});
+        schema = merge(defaultSchema, schema);
         const columns = ((cards?.browse?.widgets) || [nameField]);
         const handleFetch = (typeof fetch === 'function') ? params => objectFetch(fetch(params), utMeta()) : params => objectFetch(params, utMeta());
         const handleNavigatorFetch = params => navigatorFetch(params, utMeta());
@@ -113,6 +119,12 @@ export default ({
                         toolbar={toolbar}
                         onDropdown={onDropdown}
                         table={table}
+                        view={view}
+                        editors={editors}
+                        cards={cards}
+                        methods={methods}
+                        layouts={layouts}
+                        layout={layout}
                     >
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}
@@ -124,7 +136,7 @@ export default ({
                         />}
                     </Explorer>
                 );
-            };
+            }
             return Browse;
         };
         return {
