@@ -64,7 +64,8 @@ module.exports = ({
             [fetchMethod]: fetch ? fetch(filter) : filter,
             [getMethod]: get ? get(find) : async criteria => ({[editor.resultSet]: await find(criteria)}),
             [init]: params => params,
-            [add](instance) {
+            [add](msg) {
+                const instance = msg?.payload?.params ?? msg;
                 const objects = [].concat(instance[editor.resultSet]);
                 const result = objects.map(obj => {
                     maxId += 1;
@@ -77,7 +78,8 @@ module.exports = ({
                 instances.push(...result);
                 return {[editor.resultSet]: result};
             },
-            async [edit](edited) {
+            async [edit](msg) {
+                const edited = msg?.payload?.params ?? msg;
                 const objects = [].concat(edited[editor.resultSet]);
                 const result = await Promise.all(objects.map(async i => {
                     const instance = await find({[keyField]: i[keyField]});
@@ -85,7 +87,8 @@ module.exports = ({
                 }));
                 return {[editor.resultSet]: result.filter(Boolean)};
             },
-            [remove](deleted) {
+            [remove](msg) {
+                const deleted = msg?.payload?.params ?? msg;
                 const result = [];
                 for (const item of deleted[keyField]) {
                     const found = instances.findIndex(byKey({[keyField]: item}));
