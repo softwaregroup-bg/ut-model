@@ -1,3 +1,12 @@
+## [8.3.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.2...v8.3.3) (2022-08-15)
+
+
+### Bug Fixes
+
+* handle undefined api result ([ecda444](https://github.com/softwaregroup-bg/ut-model/commit/ecda4444d95725e59a21daaa3026cf9ef20d478a))
+
+
+
 ## [8.3.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.1...v8.3.2) (2022-08-15)
 
 
