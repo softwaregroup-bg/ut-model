@@ -1,3 +1,12 @@
+## [8.3.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.1...v8.3.2) (2022-08-15)
+
+
+### Bug Fixes
+
+* remove title ([d45149c](https://github.com/softwaregroup-bg/ut-model/commit/d45149ce5aa12bd8bf76831435f879cb3e55aa50))
+
+
+
 ## [8.3.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.0...v8.3.1) (2022-07-27)
 
 
