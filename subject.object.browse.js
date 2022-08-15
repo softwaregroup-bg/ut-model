@@ -95,7 +95,7 @@ export default ({
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
         const BrowserComponent = async(pageFilter) => {
-            const api = await subjectApi(fetchMethod);
+            const api = await subjectApi(fetchMethod); // todo: call later
             const resultSetName = resultSet || object;
             const mergedSchema = merge({}, {properties: {[resultSetName]: api?.result?.properties?.[resultSetName]?.items}}, schema);
             const defaultPageFilter = merge({}, defaultFilter, {[resultSetName]: pageFilter});

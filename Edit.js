@@ -40,12 +40,8 @@ export default ({
         const methods = arguments[0].import;
         return {
             async editor({id, type, layout: layoutName = type, ...init}) {
-                const api = await subjectApi(get);
-                const mergedSchema = merge({}, {
-                    properties: {
-                        [resultSet]: api?.result?.properties?.[resultSet]?.items
-                    }
-                }, api?.result, schema);
+                const schemaEdit = merge({}, (await subjectApi(edit)).params, schema);
+                const schemaCreate = merge({}, (await subjectApi(add)).params, schema);
                 const layoutMethods = layoutName && rest[`${layoutName}Methods`];
                 const handleAdd = layoutMethods?.add ? methods[layoutMethods.add] : objectAdd;
                 const handleGet = layoutMethods?.get ? methods[layoutMethods.get] : objectGet;
@@ -54,7 +50,8 @@ export default ({
                 const props = {
                     object,
                     id,
-                    schema: mergedSchema,
+                    schema: schemaEdit,
+                    schemaCreate,
                     editors,
                     type,
                     typeField,

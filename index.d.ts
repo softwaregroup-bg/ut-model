@@ -33,7 +33,7 @@ interface Create extends Omit<Action, 'action'> {
 interface modelObject<Subject extends string, Object extends string, ResultSet extends string> {
     subject: Subject;
     object: Object;
-    objectTitle: string;
+    objectTitle?: string;
     keyField?: string;
     nameField?: string;
     tenantField?: string;
