@@ -60,6 +60,7 @@ const defaults = (joi, {
         }],
         toolbar: [],
         permission: {
+            browse: `${subject}.${object}.browse`,
             add: `${subject}.${object}.add`,
             delete: `${subject}.${object}.delete`,
             edit: `${subject}.${object}.edit`
