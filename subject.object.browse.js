@@ -28,6 +28,7 @@ export default ({
         view,
         layout,
         permission: {
+            browse: browsePermission,
             add: addPermission,
             edit: editPermission,
             delete: deletePermission
@@ -142,7 +143,7 @@ export default ({
         return {
             [`${subject}.${object}.browse`]: () => ({
                 title,
-                permission: `${subject}.${object}.browse`,
+                permission: browsePermission,
                 component: BrowserComponent
             })
         };
