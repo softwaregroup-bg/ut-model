@@ -1,3 +1,12 @@
+## [8.3.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.3...v8.3.4) (2022-08-23)
+
+
+### Bug Fixes
+
+* possibility to specify custom 'subject.object.browse' permission #UTCORE-121 ([#6](https://github.com/softwaregroup-bg/ut-model/issues/6)) ([c1b9af0](https://github.com/softwaregroup-bg/ut-model/commit/c1b9af0deb873e3cd78c6212e1dfb91b48b13060)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-model/issues/UTCORE-121)
+
+
+
 ## [8.3.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.2...v8.3.3) (2022-08-15)
 
 
