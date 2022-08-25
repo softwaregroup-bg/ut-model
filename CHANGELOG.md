@@ -1,3 +1,12 @@
+# [8.4.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.4...v8.4.0) (2022-08-25)
+
+
+### Features
+
+* allow passing component overrides ([030ab5d](https://github.com/softwaregroup-bg/ut-model/commit/030ab5d4880d1c986a96412485752f1ad7a2cd05))
+
+
+
 ## [8.3.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.3.3...v8.3.4) (2022-08-23)
 
 
