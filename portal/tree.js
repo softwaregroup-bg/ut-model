@@ -128,6 +128,7 @@ export const tree = ({joi}) => ({
             widgets: ['tree.treeName', 'tree.treeDescription']
         },
         toolbar: {
+            type: 'toolbar',
             widgets: [{
                 type: 'button',
                 label: 'Browse',

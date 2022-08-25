@@ -121,7 +121,7 @@ module.exports.validation = (objects, lib) => [
     }
 ];
 
-module.exports.component = (objects, lib) => [
+module.exports.component = (objects, lib, override) => [
     function component(ut) {
         const Edit = require('./Edit').default;
         const subjectObjectBrowse = require('./subject.object.browse').default;
@@ -143,7 +143,8 @@ module.exports.component = (objects, lib) => [
                 subjectObjectOpen(params),
                 subjectObjectNew(params),
                 subjectObjectReport(params)
-            ]).flat(1)
+            ]).flat(1),
+            override
         ).concat(
             subjects.map(subject => subjectReportOpen({subject}))
         ).filter(Boolean);
