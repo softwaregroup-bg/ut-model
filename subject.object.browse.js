@@ -40,7 +40,7 @@ export default ({
         navigatorFetch: navigatorFetchMethod = 'customerOrganizationGraphFetch'
     }
 }) =>
-    /** @type { import('ut-portal/handlers').pageFactory<{}, {}> } */
+    /** @type { import('ut-portal').pageFactory<{}, {}> } */
     function subjectObjectBrowse({
         utMeta,
         import: {

@@ -1,6 +1,6 @@
 // @ts-check
 export default ({subject, object}) =>
-    /** @type { import('ut-portal/handlers').pageFactory<{}, {}> } */
+    /** @type { import('ut-portal').pageFactory<{}, {}> } */
     function subjectObjectOpen({
         lib: {
             editor

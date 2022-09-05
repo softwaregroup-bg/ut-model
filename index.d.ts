@@ -3,7 +3,7 @@ import type {Schema, PropertyEditor, Cards, Layouts, Layout, Action, Properties,
 import type {Props as ActionButtonProps} from 'ut-prime/core/ActionButton/ActionButton.types';
 import {Props as ReportProps} from 'ut-prime/core/Report/Report.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
-import type {pageSet} from 'ut-portal/handlers';
+import type {pageSet} from 'ut-portal';
 
 export type model<
     Subject extends string,

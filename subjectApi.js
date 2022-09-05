@@ -3,7 +3,7 @@ const cache = {};
 module.exports = ({
     subject
 }) =>
-    /** @type { import('ut-portal/handlers').libFactory } */
+    /** @type { import('ut-portal').libFactory } */
     function subjectApi({
         utMeta,
         import: {

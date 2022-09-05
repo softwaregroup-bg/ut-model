@@ -23,7 +23,7 @@ export default ({
     },
     ...rest
 }) =>
-    /** @type { import('ut-portal/handlers').libFactory } */
+    /** @type { import('ut-portal').libFactory } */
     function ObjectEditor({
         utMeta,
         import: {

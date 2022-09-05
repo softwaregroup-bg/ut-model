@@ -19,7 +19,7 @@ export default ({
         fetch: fetchMethod
     }
 }) =>
-    /** @type { import('ut-portal/handlers').pageFactory<{}, {}> } */
+    /** @type { import('ut-portal').pageFactory<{}, {}> } */
     function subjectObjectReport({
         utMeta,
         utMethod,
