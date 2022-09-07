@@ -13,7 +13,8 @@ export default ({
     cards,
     layouts,
     editor: {
-        resultSet
+        resultSet,
+        toolbar
     },
     methods: {
         init: initMethod,
@@ -63,6 +64,7 @@ export default ({
                     name: subjectObject,
                     methods,
                     init,
+                    toolbar,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
                     onAdd: params => handleAdd(params, utMeta()),
