@@ -14,7 +14,8 @@ export default ({
     layouts,
     editor: {
         resultSet,
-        toolbar
+        toolbar,
+        customization
     },
     methods: {
         init: initMethod,
@@ -65,6 +66,7 @@ export default ({
                     methods,
                     init,
                     toolbar,
+                    customization,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
                     onAdd: params => handleAdd(params, utMeta()),
