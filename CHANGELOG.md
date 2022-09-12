@@ -1,3 +1,12 @@
+# [8.5.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.4.3...v8.5.0) (2022-09-12)
+
+
+### Features
+
+* page proxy ([d1b1453](https://github.com/softwaregroup-bg/ut-model/commit/d1b145393debf554b32745664edc40fcbaeb1d22))
+
+
+
 ## [8.4.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.4.2...v8.4.3) (2022-09-08)
 
 
