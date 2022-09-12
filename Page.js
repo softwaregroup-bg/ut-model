@@ -8,11 +8,13 @@ export default function(api) {
     return {
         Page: new Proxy({}, {
             get(target, key) {
+                key = String(key);
+                const method = methods[`component/${key.charAt(0).toLowerCase()}${key.slice(1)}`];
                 // eslint-disable-next-line react/prop-types
                 return function PageProxy({params, ...props}) {
                     const [Component, setComponent] = React.useState(null);
                     React.useEffect(() => {
-                        methods[`component/${String(key)}`]({}, api.utMeta())
+                        method({}, api.utMeta())
                             .then(({component}) => component(params || {}))
                             .then(value => {
                                 return setComponent(() => value);
