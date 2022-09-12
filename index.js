@@ -124,6 +124,7 @@ module.exports.validation = (objects, lib) => [
 module.exports.component = (objects, lib, override) => [
     function component(ut) {
         const Edit = require('./Edit').default;
+        const page = require('./Page').default;
         const subjectObjectBrowse = require('./subject.object.browse').default;
         const subjectObjectOpen = require('./subject.object.open').default;
         const subjectObjectNew = require('./subject.object.new').default;
@@ -132,6 +133,7 @@ module.exports.component = (objects, lib, override) => [
         const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
         const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
         return [
+            page
         ].concat(
             subjects.map(subject => subjectApi({subject}))
         ).concat(
