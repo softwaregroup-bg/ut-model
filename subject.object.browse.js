@@ -95,12 +95,23 @@ export default ({
             }, ...toolbar.map(button => ({enabled: 'current', ...button}))];
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
-        const BrowserComponent = async(pageFilter) => {
+        const defaultProps = {
+            resultSet: resultSet || object,
+            keyField,
+            columns,
+            details,
+            onDropdown,
+            table,
+            view,
+            editors,
+            cards,
+            layouts
+        };
+        const BrowserComponent = async({layout: layoutName, ...pageFilter}) => {
             const api = await subjectApi(fetchMethod); // todo: call later
-            const resultSetName = resultSet || object;
-            const mergedSchema = merge({}, {properties: {[resultSetName]: api?.result?.properties?.[resultSetName]?.items}}, schema);
-            const defaultPageFilter = merge({}, defaultFilter, {[resultSetName]: pageFilter});
-            function Browse() {
+            const mergedSchema = merge({}, {properties: {[defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items}}, schema);
+            const defaultPageFilter = merge({}, defaultFilter, {[defaultProps.resultSet]: pageFilter, layout: layoutName});
+            function Browse(props) {
                 const [tenant, setTenant] = React.useState(null);
                 const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultPageFilter, tenantField, tenant) : defaultPageFilter);
                 const handleSelect = React.useCallback(value => {
@@ -108,24 +119,15 @@ export default ({
                     setFilter(prev => lodashSet({...prev}, tenantField, value));
                 }, [setTenant, setFilter]);
                 const toolbar = React.useMemo(() => getActions(setFilter), [setFilter]);
+                const explorerProps = React.useMemo(() => merge({schema: mergedSchema}, defaultProps, props), [props]);
                 return (
                     <Explorer
                         fetch={(!navigator || tenant != null) && handleFetch}
-                        resultSet={resultSetName}
-                        keyField={keyField}
-                        schema={mergedSchema}
-                        columns={columns}
-                        details={details}
                         filter={filter}
+                        layout={layoutName || layout}
                         toolbar={toolbar}
-                        onDropdown={onDropdown}
-                        table={table}
-                        view={view}
-                        editors={editors}
-                        cards={cards}
                         methods={methods}
-                        layouts={layouts}
-                        layout={layout}
+                        {...explorerProps}
                     >
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}
