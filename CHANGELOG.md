@@ -1,3 +1,12 @@
+## [8.5.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.5.2...v8.5.3) (2022-09-20)
+
+
+### Bug Fixes
+
+* pass name to browser and report ([3046827](https://github.com/softwaregroup-bg/ut-model/commit/30468270fb578005d6ac6a8f151eab84b5981459))
+
+
+
 ## [8.5.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.5.1...v8.5.2) (2022-09-13)
 
 
