@@ -6,6 +6,7 @@ import merge from 'ut-function.merge';
 export default ({
     subject,
     object,
+    subjectObject,
     report: {
         title
     },
@@ -45,6 +46,7 @@ export default ({
                                 result: resultSchema.properties[object]
                             }
                         },
+                        name: subjectObject + 'Report',
                         params: reports[id]?.params,
                         validation: reports[id]?.validation,
                         columns: reports[id]?.columns || cards?.browse?.widgets,

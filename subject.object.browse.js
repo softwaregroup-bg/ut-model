@@ -8,6 +8,7 @@ import lodashSet from 'lodash.set';
 export default ({
     subject,
     object,
+    subjectObject,
     keyField,
     nameField,
     tenantField,
@@ -97,6 +98,7 @@ export default ({
         const onDropdown = names => portalDropdownList(names, utMeta());
         const defaultProps = {
             resultSet: resultSet || object,
+            name: subjectObject + 'Browse',
             keyField,
             columns,
             details,
