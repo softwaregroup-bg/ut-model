@@ -1,3 +1,12 @@
+# [8.6.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.5.3...v8.6.0) (2022-09-21)
+
+
+### Features
+
+* allow pages without backend API definition ([89013af](https://github.com/softwaregroup-bg/ut-model/commit/89013af87b8aa14fce3b1e63852b605e63a6780c))
+
+
+
 ## [8.5.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.5.2...v8.5.3) (2022-09-20)
 
 
