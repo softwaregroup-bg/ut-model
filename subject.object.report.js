@@ -8,6 +8,7 @@ export default ({
     object,
     subjectObject,
     report: {
+        noApi,
         title
     },
     reports,
@@ -36,7 +37,7 @@ export default ({
                 title,
                 permission: `${subject}.${object}.report`,
                 component: async({id}) => {
-                    const api = await subjectApi(fetchMethod);
+                    const api = !noApi && await subjectApi(fetchMethod);
                     const resultSchema = merge({}, {properties: {[object]: api?.result?.properties?.[object]?.items}}, schema);
                     const paramsSchema = merge({}, {properties: {[object]: api?.params?.properties?.[object]}}, schema);
                     const props = {

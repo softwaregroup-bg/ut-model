@@ -17,6 +17,7 @@ export default ({
     layouts,
     details,
     browser: {
+        noApi,
         title,
         create,
         filter: defaultFilter,
@@ -110,7 +111,7 @@ export default ({
             layouts
         };
         const BrowserComponent = async({layout: layoutName, ...pageFilter}) => {
-            const api = await subjectApi(fetchMethod); // todo: call later
+            const api = !noApi && await subjectApi(fetchMethod); // todo: call later
             const mergedSchema = merge({}, {properties: {[defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items}}, schema);
             const defaultPageFilter = merge({}, defaultFilter, {[defaultProps.resultSet]: pageFilter, layout: layoutName});
             function Browse(props) {
