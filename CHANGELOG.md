@@ -1,3 +1,7 @@
+## [8.6.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.0...v8.6.1) (2022-09-21)
+
+
+
 # [8.6.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.5.3...v8.6.0) (2022-09-21)
 
 
