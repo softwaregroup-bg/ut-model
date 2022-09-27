@@ -1,3 +1,13 @@
+## [8.6.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.1...v8.6.2) (2022-09-27)
+
+
+### Bug Fixes
+
+* default parent field ([fd6f49d](https://github.com/softwaregroup-bg/ut-model/commit/fd6f49d83ea6374c0b90d7d56996c5c4f47dde7a))
+* default parent field ([443716b](https://github.com/softwaregroup-bg/ut-model/commit/443716b008d9ca299433ed4389a88509471998d0))
+
+
+
 ## [8.6.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.0...v8.6.1) (2022-09-21)
 
 
