@@ -13,15 +13,15 @@ const organization = [
     {value: 500, label: 'Europe'},
     {value: 600, label: 'North America'},
     {value: 700, label: 'South America'},
-    {value: 101, parent: 100, label: 'Egypt'},
-    {value: 102, parent: 100, label: 'Kenya'},
-    {value: 103, parent: 100, label: 'Ghana'},
-    {value: 104, parent: 100, label: 'Nigeria'},
-    {value: 301, parent: 300, label: 'Philippines'},
-    {value: 302, parent: 300, label: 'India'},
-    {value: 501, parent: 500, label: 'Bulgaria'},
-    {value: 601, parent: 600, label: 'USA'},
-    {value: 701, parent: 700, label: 'Mexico'}
+    {value: 101, parents: 100, label: 'Egypt'},
+    {value: 102, parents: 100, label: 'Kenya'},
+    {value: 103, parents: 100, label: 'Ghana'},
+    {value: 104, parents: 100, label: 'Nigeria'},
+    {value: 301, parents: 300, label: 'Philippines'},
+    {value: 302, parents: 300, label: 'India'},
+    {value: 501, parents: 500, label: 'Bulgaria'},
+    {value: 601, parents: 600, label: 'USA'},
+    {value: 701, parents: 700, label: 'Mexico'}
 ];
 
 const page = app({
