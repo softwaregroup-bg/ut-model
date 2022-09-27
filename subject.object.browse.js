@@ -137,6 +137,7 @@ export default ({
                             onSelect={handleSelect}
                             keyField={navigator?.key || 'id'}
                             field={navigator?.title || 'title'}
+                            parentField={navigator?.parentField || 'parents'}
                             title={mergedSchema?.properties?.[tenantField]?.title || 'Tenant'}
                             resultSet={navigator?.resultSet || 'organization'}
                         />}
