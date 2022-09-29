@@ -2,6 +2,8 @@
 import React from 'react';
 import Report from 'ut-prime/core/Report';
 
+import {capital} from './lib';
+
 export default ({
     subject
 }) =>
@@ -23,6 +25,7 @@ export default ({
                     const resultSet = report?.resultSet || 'result';
                     const properties = report?.schema?.properties?.params?.properties;
                     const props = {
+                        name: `${capital(reportId)}Report`,
                         schema: report?.schema,
                         params: report?.params || Object.keys(report?.schema?.properties?.params?.properties).filter(name => !['pageNumber', 'pageSize'].includes(name)),
                         columns: report?.columns || Object.keys(report?.schema?.properties?.result?.properties),
@@ -40,8 +43,8 @@ export default ({
                             ...properties?.orderBy && {orderBy}
                         }, utMeta())
                     };
-                    return function ReportComponent() {
-                        return <Report {...props}/>;
+                    return function ReportComponent(tabParams) {
+                        return <Report {...props} {...tabParams}/>;
                     };
                 }
             })
