@@ -1,3 +1,12 @@
+## [8.6.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.3...v8.6.4) (2022-09-29)
+
+
+### Bug Fixes
+
+* tab params ([c1fb47f](https://github.com/softwaregroup-bg/ut-model/commit/c1fb47fd1189ce281a5efb20d0014c55b982482a))
+
+
+
 ## [8.6.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.2...v8.6.3) (2022-09-29)
 
 
