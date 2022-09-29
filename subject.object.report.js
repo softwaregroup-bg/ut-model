@@ -55,8 +55,8 @@ export default ({
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };
-                    return function ReportComponent() {
-                        return <Report {...props}/>;
+                    return function ReportComponent(tabParams) {
+                        return <Report {...props} {...tabParams}/>;
                     };
                 }
             })

@@ -74,8 +74,8 @@ export default ({
                     onGet: params => handleGet(params, utMeta()),
                     onEdit: params => handleEdit(params, utMeta())
                 };
-                return function Edit() {
-                    return <Editor {...props}/>;
+                return function Edit(tabParams) {
+                    return <Editor {...props} {...tabParams}/>;
                 };
             }
         };
