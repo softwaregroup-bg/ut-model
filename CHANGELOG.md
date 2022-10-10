@@ -1,3 +1,12 @@
+## [8.6.5](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.4...v8.6.5) (2022-10-10)
+
+
+### Bug Fixes
+
+* report customization ([d7c8fe2](https://github.com/softwaregroup-bg/ut-model/commit/d7c8fe2cc65a5c8c4a318e9f924c4158d1c9ca00))
+
+
+
 ## [8.6.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.3...v8.6.4) (2022-09-29)
 
 
