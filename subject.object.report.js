@@ -32,6 +32,7 @@ export default ({
             [`${subject}Api`]: subjectApi
         }
     }) {
+        const methods = arguments[0].import;
         return {
             [`${subject}.${object}.report`]: () => ({
                 title,
@@ -52,6 +53,7 @@ export default ({
                         validation: reports[id]?.validation,
                         columns: reports[id]?.columns || cards?.browse?.widgets,
                         resultSet: reports?.[id]?.resultSet == null ? object : reports[id].resultSet,
+                        methods,
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };

@@ -16,6 +16,7 @@ export default ({
             portalDropdownList
         }
     }) {
+        const methods = arguments[0].import;
         return {
             [`${subject}.report.open`]: () => ({
                 title: 'Report',
@@ -30,6 +31,7 @@ export default ({
                         params: report?.params || Object.keys(report?.schema?.properties?.params?.properties).filter(name => !['pageNumber', 'pageSize'].includes(name)),
                         columns: report?.columns || Object.keys(report?.schema?.properties?.result?.properties),
                         resultSet,
+                        methods,
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: ({
                             paging,

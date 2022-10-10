@@ -15,12 +15,12 @@
     "ut-port-http": "^8.9.3",
     "ut-port-jsonrpc": "^7.3.1",
     "ut-port-script": "^7.2.0",
-    "ut-portal": "^9.4.9",
+    "ut-portal": "^9.4.20",
     "ut-run": "^10.70.15"
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "ut-prime": "^2.18.1"
+    "ut-prime": "^2.23.1"
   },
   "scripts": {
     "storybook": "ut-storybook start -p 6006 --ci",
