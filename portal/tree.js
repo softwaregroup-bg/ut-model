@@ -29,6 +29,13 @@ export const tree = ({joi}) => ({
     object: 'tree',
     browser: {
         navigator: true,
+        details: {
+            page: 'model.tree.open',
+            params: {
+                layout: 'view'
+            },
+            toolbar: false
+        },
         create: [{
             title: 'Add'
         }, {
@@ -58,6 +65,25 @@ export const tree = ({joi}) => ({
     },
     schema: {
         properties: {
+            preview: {
+                properties: {
+                    treeName: {
+                        readOnly: true,
+                        title: 'Name'
+                    },
+                    treeDescription: {
+                        readOnly: true,
+                        title: 'Description'
+                    },
+                    familyId: {
+                        readOnly: true,
+                        title: 'Family',
+                        widget: {
+                            type: 'dropdown', options: treeFamily
+                        }
+                    }
+                }
+            },
             tree: {
                 properties: {
                     treeName: {
@@ -144,6 +170,16 @@ export const tree = ({joi}) => ({
         edit: {
             label: 'Identification',
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.familyId']
+        },
+        editView: {
+            className: 'col-12',
+            classes: {
+                default: {
+                    label: 'md:col-12',
+                    field: 'md:col-12'
+                }
+            },
+            widgets: ['preview.treeName', 'preview.treeDescription', 'preview.familyId']
         },
         editDelete: {
             label: 'Identification',
