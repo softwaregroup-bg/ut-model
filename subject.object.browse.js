@@ -15,8 +15,8 @@ export default ({
     schema,
     cards,
     layouts,
-    details,
     browser: {
+        details,
         noApi,
         title,
         create,
