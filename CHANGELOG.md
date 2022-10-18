@@ -1,3 +1,17 @@
+# [8.7.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.5...v8.7.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* browser details ([4486eea](https://github.com/softwaregroup-bg/ut-model/commit/4486eea4877fb1a2bebc5b5691323655b97f78b7))
+
+
+### Features
+
+* browse details demo ([7d86089](https://github.com/softwaregroup-bg/ut-model/commit/7d860899b1fdd037ef679774ee5dc2f02bff7a14))
+
+
+
 ## [8.6.5](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.4...v8.6.5) (2022-10-10)
 
 
