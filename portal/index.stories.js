@@ -1,6 +1,7 @@
 import {app} from 'ut-portal/storybook';
 import model from '..';
 import {tree, modelTree} from './tree';
+import {plantation} from './plantation';
 
 export default {
     title: 'Model'
@@ -52,7 +53,7 @@ const page = app({
                     }
                 }
             }),
-            browser: () => model.component([tree], [
+            browser: () => model.component([tree, plantation], [
                 () => ({ namespace: 'component/model' })
             ])
         };
@@ -74,3 +75,4 @@ export const TreeNewNested = page(treeNew, {layout: 'nested'});
 export const TreeNew3Col = page(treeNew, {layout: '3col'});
 export const TreeNewThumbIndex = page(treeNew, {layout: 'thumbIndex'});
 export const TreeReport = page('model.tree.report', 'list');
+export const PlantationNew = page('model.plantation.new');
