@@ -1,3 +1,12 @@
+# [8.8.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.7.0...v8.8.0) (2022-10-19)
+
+
+### Features
+
+* page widget demo ([c171fae](https://github.com/softwaregroup-bg/ut-model/commit/c171fae7b2d34bea97a9a7fb6f3853a4d8b7ecb7))
+
+
+
 # [8.7.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.6.5...v8.7.0) (2022-10-18)
 
 
