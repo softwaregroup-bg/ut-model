@@ -1,3 +1,12 @@
+## [8.8.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.8.0...v8.8.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* init value ([d1b9fbb](https://github.com/softwaregroup-bg/ut-model/commit/d1b9fbbb0c78c3900ddf849d046d8105b80f64ac))
+
+
+
 # [8.8.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.7.0...v8.8.0) (2022-10-19)
 
 
