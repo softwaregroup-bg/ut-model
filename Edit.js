@@ -42,7 +42,7 @@ export default ({
     }) {
         const methods = arguments[0].import;
         return {
-            async editor({id, type, layout: layoutName = type, ...init}) {
+            async editor({id, type, layout: layoutName = type, ...value}) {
                 const schemaEdit = merge({}, !noApi && (await subjectApi(edit))?.params, schema);
                 const schemaCreate = merge({}, !noApi && (await subjectApi(add))?.params, schema);
                 const layoutMethods = layoutName && rest[`${layoutName}Methods`];
@@ -65,7 +65,7 @@ export default ({
                     resultSet,
                     name: subjectObject,
                     methods,
-                    init,
+                    value,
                     toolbar,
                     customization,
                     onDropdown: names => portalDropdownList(names, utMeta()),

@@ -68,6 +68,7 @@ export const TreeOpen = page('model.tree.open', 101);
 export const TreeOpenThumbIndex = page('model.tree.open', 101, {layout: 'thumbIndex'});
 const treeNew = 'model.tree.new';
 export const TreeNew = page(treeNew);
+export const TreeNewFamilyId14 = page(treeNew, {'tree.familyId': 14});
 export const TreeNewConifer = page(treeNew, {type: 'conifer'});
 export const TreeNewBroadleaf = page(treeNew, {type: 'broadleaf'});
 export const TreeNewFlat = page(treeNew, {layout: 'flat'});
