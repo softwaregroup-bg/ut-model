@@ -1,3 +1,12 @@
+# [8.9.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.8.1...v8.9.0) (2022-10-31)
+
+
+### Features
+
+* history card ([4fcdabb](https://github.com/softwaregroup-bg/ut-model/commit/4fcdabba7c314e3783815997b23bf86f8f01b360))
+
+
+
 ## [8.8.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.8.0...v8.8.1) (2022-10-19)
 
 
