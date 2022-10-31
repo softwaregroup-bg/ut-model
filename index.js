@@ -23,6 +23,10 @@ const defaults = (joi, {
 }) => merge({
     cards: {
         edit: {title: object, widgets: [nameField, descriptionField]},
+        history: {
+            className: 'col-12',
+            widgets: ['history']
+        },
         hidden: {
             hidden: true,
             label: 'Hidden fields',
@@ -37,6 +41,14 @@ const defaults = (joi, {
                     [tenantField]: {title: 'Tenant', validation: joi && joi.any()},
                     [nameField.split('.').pop()]: {title: `${capital(object)} Name`, filter: true, sort: true},
                     [descriptionField]: {title: `${capital(object)} Description`, filter: true, editor: {type: 'text'}}
+                }
+            },
+            history: {
+                widget: {
+                    type: 'page',
+                    page: 'history.history.browse',
+                    toolbar: false,
+                    params: {object, id: `\${${object}.${keyField}}`}
                 }
             }
         }
