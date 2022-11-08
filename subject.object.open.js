@@ -1,5 +1,5 @@
 // @ts-check
-export default ({subject, object}) =>
+export default ({subject, object, objectTitle}) =>
     /** @type { import('ut-portal').pageFactory<{}, {}> } */
     function subjectObjectOpen({
         lib: {
@@ -8,7 +8,7 @@ export default ({subject, object}) =>
     }) {
         return {
             [`${subject}.${object}.open`]: () => ({
-                title: `Edit ${object}`,
+                title: `Edit ${objectTitle}`,
                 permission: `${subject}.${object}.get`,
                 component: editor
             })
