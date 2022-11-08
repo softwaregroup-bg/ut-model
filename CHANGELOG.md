@@ -1,3 +1,12 @@
+## [8.9.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.0...v8.9.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* create/edit object title ([c46f935](https://github.com/softwaregroup-bg/ut-model/commit/c46f9356ecae40cd5d3e4fb36aafbad661b0f0c9))
+
+
+
 # [8.9.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.8.1...v8.9.0) (2022-10-31)
 
 
