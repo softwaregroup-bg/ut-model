@@ -16,6 +16,7 @@ export default ({
         noApi,
         resultSet,
         toolbar,
+        onFieldChange,
         customization
     },
     methods: {
@@ -68,6 +69,7 @@ export default ({
                     value,
                     toolbar,
                     customization,
+                    onFieldChange,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
                     onAdd: params => handleAdd(params, utMeta()),
