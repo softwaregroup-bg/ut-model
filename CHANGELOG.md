@@ -1,3 +1,12 @@
+## [8.9.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.1...v8.9.2) (2022-11-17)
+
+
+### Bug Fixes
+
+* pass onFieldChange ([6bf6ff4](https://github.com/softwaregroup-bg/ut-model/commit/6bf6ff4e914fabd3f29749fe2ee75f63d5c21ab1))
+
+
+
 ## [8.9.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.0...v8.9.1) (2022-11-08)
 
 
