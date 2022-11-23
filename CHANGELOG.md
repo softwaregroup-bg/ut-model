@@ -1,3 +1,12 @@
+## [8.9.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.2...v8.9.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* show history toolbar ([21dc090](https://github.com/softwaregroup-bg/ut-model/commit/21dc09020ba52d5a963f2d189f7026da16aee3e8))
+
+
+
 ## [8.9.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.1...v8.9.2) (2022-11-17)
 
 
