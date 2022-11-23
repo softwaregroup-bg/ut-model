@@ -47,7 +47,6 @@ const defaults = (joi, {
                 widget: {
                     type: 'page',
                     page: 'history.history.browse',
-                    toolbar: false,
                     params: {object, id: `\${${object}.${keyField}}`}
                 }
             }
