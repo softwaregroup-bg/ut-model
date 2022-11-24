@@ -91,6 +91,7 @@ export default ({
                 action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())
             }, {
                 title: 'Delete',
+                confirm: 'Do you confirm the deletion of the selected rows ?',
                 permission: deletePermission,
                 enabled: 'selected',
                 action: handleDelete
