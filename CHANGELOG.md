@@ -1,3 +1,12 @@
+# [8.10.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.3...v8.10.0) (2022-11-24)
+
+
+### Features
+
+* Delete confirmation in subject.object.browse ([92e46a2](https://github.com/softwaregroup-bg/ut-model/commit/92e46a2d410681e91d5747883ce37d9f7d6c8ac6))
+
+
+
 ## [8.9.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.2...v8.9.3) (2022-11-23)
 
 
