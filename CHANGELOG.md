@@ -1,3 +1,12 @@
+## [8.10.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.10.0...v8.10.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* do not submit history ([cdda6f3](https://github.com/softwaregroup-bg/ut-model/commit/cdda6f312006c157888c7372710630db81397b7e))
+
+
+
 # [8.10.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.9.3...v8.10.0) (2022-11-24)
 
 
