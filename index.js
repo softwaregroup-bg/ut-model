@@ -25,7 +25,12 @@ const defaults = (joi, {
         edit: {title: object, widgets: [nameField, descriptionField]},
         history: {
             className: 'col-12',
-            widgets: ['history']
+            widgets: [{
+                name: '',
+                type: 'page',
+                page: 'history.history.browse',
+                params: {object, id: `\${${object}.${keyField}}`}
+            }]
         },
         hidden: {
             hidden: true,
@@ -41,13 +46,6 @@ const defaults = (joi, {
                     [tenantField]: {title: 'Tenant', validation: joi && joi.any()},
                     [nameField.split('.').pop()]: {title: `${capital(object)} Name`, filter: true, sort: true},
                     [descriptionField]: {title: `${capital(object)} Description`, filter: true, editor: {type: 'text'}}
-                }
-            },
-            history: {
-                widget: {
-                    type: 'page',
-                    page: 'history.history.browse',
-                    params: {object, id: `\${${object}.${keyField}}`}
                 }
             }
         }
