@@ -16,6 +16,7 @@ export default ({
         noApi,
         resultSet,
         toolbar,
+        buttons,
         onFieldChange,
         customization
     },
@@ -68,6 +69,7 @@ export default ({
                     methods,
                     value,
                     toolbar,
+                    buttons,
                     customization,
                     onFieldChange,
                     onDropdown: names => portalDropdownList(names, utMeta()),
