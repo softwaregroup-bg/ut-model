@@ -1,3 +1,12 @@
+# [8.11.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.10.1...v8.11.0) (2022-12-03)
+
+
+### Features
+
+* editor buttons config ([6617d21](https://github.com/softwaregroup-bg/ut-model/commit/6617d21fc926789d3bef0260c81b2f48853e383f))
+
+
+
 ## [8.10.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.10.0...v8.10.1) (2022-11-29)
 
 
