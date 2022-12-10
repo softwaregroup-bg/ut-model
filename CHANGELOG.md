@@ -1,3 +1,12 @@
+# [8.12.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.11.0...v8.12.0) (2022-12-10)
+
+
+### Features
+
+* mock relations ([d7da6d0](https://github.com/softwaregroup-bg/ut-model/commit/d7da6d0fb3e207e1a02a800c2a02c168cec650f8))
+
+
+
 # [8.11.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.10.1...v8.11.0) (2022-12-03)
 
 
