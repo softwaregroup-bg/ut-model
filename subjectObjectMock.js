@@ -23,6 +23,7 @@ module.exports = ({
         lib: {
             [subjectObject]: {
                 objects: instances = trees({keyField, nameField: nameField.split('.').pop(), tenantField}),
+                relations = [],
                 fetch = null,
                 get = null,
                 report = null
@@ -34,9 +35,15 @@ module.exports = ({
     }) {
         if (mock !== true && !mock?.[subjectObject]) return {};
         const byKey = criteria => instance => String(instance[keyField]) === String(criteria[keyField]);
-        const find = async criteria => {
+        const find = async(criteria, resultSet) => {
             await new Promise((resolve, reject) => setTimeout(resolve, 100));
-            return instances.find(byKey(criteria));
+            const found = instances.findIndex(byKey(criteria));
+            if (found >= 0) {
+                return resultSet ? {
+                    [resultSet]: instances[found],
+                    ...relations[found]
+                } : instances[found];
+            }
         };
         const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function compare(a, b) {
             if (a[field] < b[field]) return smaller;
@@ -62,7 +69,7 @@ module.exports = ({
         let maxId = instances.reduce((max, instance) => Math.max(max, Number(instance[keyField])), 0);
         return {
             [fetchMethod]: fetch ? fetch(filter) : filter,
-            [getMethod]: get ? get(find) : async criteria => ({[editor.resultSet]: await find(criteria)}),
+            [getMethod]: get ? get(find) : async criteria => await find(criteria, editor.resultSet),
             [init]: params => params,
             [add](msg) {
                 const instance = msg?.payload?.jsonrpc ? msg.payload.params : msg;
