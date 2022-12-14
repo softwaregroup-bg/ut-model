@@ -18,4 +18,4 @@ module.exports.validation = (objects, lib) => [
     }
 ];
 
-module.exports.orchestrator = require('./orchestrator')(mapObjects);
+module.exports.orchestrator = require('./orchestrator');
