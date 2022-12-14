@@ -1,3 +1,12 @@
+# [8.14.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.13.0...v8.14.0) (2022-12-14)
+
+
+### Features
+
+* orchestrator, subject.object.import ([63a4819](https://github.com/softwaregroup-bg/ut-model/commit/63a481956ea1da22d7b15891fc8339587f9d371c))
+
+
+
 # [8.13.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.12.0...v8.13.0) (2022-12-14)
 
 
