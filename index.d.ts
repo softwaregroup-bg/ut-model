@@ -136,3 +136,12 @@ export function orchestratorMock<
     objects: model<Subject, Object, ResultSet>[],
     lib?: libFactory<{}, {}>[] | libFactory<{}, {}>
 ): ReturnType<handlerSet<{}, {}, {}>>;
+
+export function orchestrator<
+    Subject extends string,
+    Object extends string,
+    ResultSet extends string
+>(
+    objects: model<Subject, Object, ResultSet>[],
+    lib?: libFactory<{}, {}>[] | libFactory<{}, {}>
+): ReturnType<handlerSet<{}, {}, {}>>;

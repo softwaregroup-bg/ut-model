@@ -2,8 +2,11 @@
   "name": "ut-model",
   "description": "Data model library",
   "version": "8.12.0",
+  "browser": "browser.js",
   "main": "index.js",
   "dependencies": {
+    "csv-parse": "5.3.3",
+    "stream-transform": "3.2.1",
     "lodash.set": "4.3.2",
     "ut-function.common-joi": "^1.7.5",
     "ut-function.merge": "^1.5.6"
