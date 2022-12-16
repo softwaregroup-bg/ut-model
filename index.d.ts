@@ -142,5 +142,6 @@ export function orchestrator<
     Object extends string,
     ResultSet extends string
 >(
-    objects: model<Subject, Object, ResultSet>[]
+    objects: model<Subject, Object, ResultSet>[],
+    lib?: libFactory<{}, {}>[] | libFactory<{}, {}>
 ): ReturnType<handlerSet<{}, {}, {}>>;

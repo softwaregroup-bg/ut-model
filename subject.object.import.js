@@ -32,7 +32,7 @@ module.exports = ({subject, object}) =>
                 await clear(objectRest, $meta);
                 const filename = file.filename;
                 let tsv = filename + '.tsv';
-                const options = {conversion};
+                const options = {object, conversion};
                 try {
                     const convert = {
                         tsv: tsv2tsv,
