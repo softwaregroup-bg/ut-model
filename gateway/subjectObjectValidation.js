@@ -1,4 +1,4 @@
-const {schema2joi} = require('./lib');
+const {schema2joi} = require('../lib');
 
 module.exports = ({
     object,

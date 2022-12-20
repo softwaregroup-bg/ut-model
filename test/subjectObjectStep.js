@@ -1,4 +1,4 @@
-const {capital} = require('./lib');
+const {capital} = require('../lib');
 
 module.exports = ({
     subject,

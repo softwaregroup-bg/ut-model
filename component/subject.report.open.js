@@ -2,7 +2,7 @@
 import React from 'react';
 import Report from 'ut-prime/core/Report';
 
-import {capital} from './lib';
+import {capital} from '../lib';
 
 export default ({
     subject

@@ -18,7 +18,8 @@ export default ({
         fetch
     },
     methods: {
-        fetch: fetchMethod
+        fetch: fetchMethod,
+        export: exportMethod
     }
 }) =>
     /** @type { import('ut-portal').pageFactory<{}, {}> } */
@@ -41,6 +42,7 @@ export default ({
                     const api = !noApi && await subjectApi(fetchMethod);
                     const resultSchema = merge({}, {properties: {[object]: api?.result?.properties?.[object]?.items}}, schema);
                     const paramsSchema = merge({}, {properties: {[object]: api?.params?.properties?.[object]}}, schema);
+                    const method = reports?.[id]?.export || exportMethod;
                     const props = {
                         schema: {
                             properties: {
@@ -54,6 +56,11 @@ export default ({
                         columns: reports[id]?.columns || cards?.browse?.widgets,
                         resultSet: reports?.[id]?.resultSet == null ? object : reports[id].resultSet,
                         methods,
+                        toolbar: [{
+                            icon: 'pi pi-download',
+                            permission: method,
+                            method
+                        }].filter(item => item.method),
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };
