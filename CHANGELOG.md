@@ -1,3 +1,12 @@
+# [8.15.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.14.1...v8.15.0) (2022-12-20)
+
+
+### Features
+
+* backend methods, refactor ([0bd7148](https://github.com/softwaregroup-bg/ut-model/commit/0bd7148fe33807a3149c49130e3ff302a3c18bb2))
+
+
+
 ## [8.14.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.14.0...v8.14.1) (2022-12-16)
 
 
