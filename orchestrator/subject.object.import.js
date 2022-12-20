@@ -70,7 +70,7 @@ module.exports = ({subject, object}) =>
                 await convert(objectRest, $meta);
             }
             return {
-                ...await fetch({reconciliation: objectRest, ...rest}, $meta),
+                ...await fetch({[`${object}`]: objectRest, ...rest}, $meta),
                 ...importResult
             };
         }
