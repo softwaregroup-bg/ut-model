@@ -1,3 +1,12 @@
+## [8.15.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.0...v8.15.1) (2022-12-20)
+
+
+### Bug Fixes
+
+* pass proper params to fetch ([3ac48a4](https://github.com/softwaregroup-bg/ut-model/commit/3ac48a47fedf5b2eb97addb10cbb539dd2cd1fe3))
+
+
+
 # [8.15.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.14.1...v8.15.0) (2022-12-20)
 
 
