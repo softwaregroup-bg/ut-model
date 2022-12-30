@@ -1,7 +1,7 @@
 {
   "name": "ut-model",
   "description": "Data model library",
-  "version": "8.15.1",
+  "version": "8.15.2",
   "browser": "browser.js",
   "main": "index.js",
   "dependencies": {
