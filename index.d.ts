@@ -79,7 +79,8 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         toolbar?: Omit<ActionButtonProps, 'getValues'>[],
         table?: DataTable,
         view?: DataView,
-        layout?: Layout
+        layout?: Layout;
+        refresh?: boolean;
     },
     editor?: {
 
