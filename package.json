@@ -8,22 +8,22 @@
     "csv-parse": "5.3.3",
     "stream-transform": "3.2.1",
     "lodash.set": "4.3.2",
-    "ut-function.common-joi": "^1.7.5",
+    "ut-function.common-joi": "^1.9.1",
     "ut-function.merge": "^1.5.6"
   },
   "devDependencies": {
-    "tap": "^16.2.0",
+    "tap": "^16.3.2",
     "ut-browser": "^7.7.4",
-    "ut-login": "^7.20.1",
-    "ut-port-http": "^8.9.3",
+    "ut-login": "^7.20.4",
+    "ut-port-http": "^8.9.5",
     "ut-port-jsonrpc": "^7.3.1",
     "ut-port-script": "^7.2.0",
-    "ut-portal": "^9.4.50",
-    "ut-run": "^10.70.15"
+    "ut-portal": "^9.5.3",
+    "ut-run": "^10.70.27"
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "ut-prime": "^2.47.0"
+    "ut-prime": "^2.54.0"
   },
   "scripts": {
     "storybook": "ut-storybook start -p 6006 --ci",
