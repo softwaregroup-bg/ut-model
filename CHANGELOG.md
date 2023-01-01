@@ -1,3 +1,7 @@
+## [8.15.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.2...v8.15.3) (2023-01-01)
+
+
+
 ## [8.15.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.1...v8.15.2) (2022-12-30)
 
 
