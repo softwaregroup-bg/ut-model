@@ -1,3 +1,12 @@
+## [8.15.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.3...v8.15.4) (2023-01-05)
+
+
+### Bug Fixes
+
+* **CBI-840:** add option to refresh browser ([#8](https://github.com/softwaregroup-bg/ut-model/issues/8)) ([ebc4f8a](https://github.com/softwaregroup-bg/ut-model/commit/ebc4f8a385afb9072c7d7da22ca77b2386811a35))
+
+
+
 ## [8.15.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.2...v8.15.3) (2023-01-01)
 
 
