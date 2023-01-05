@@ -34,7 +34,8 @@ export default ({
             add: addPermission,
             edit: editPermission,
             delete: deletePermission
-        }
+        },
+        refresh
     },
     methods: {
         fetch: fetchMethod = 'fetch',
@@ -109,7 +110,8 @@ export default ({
             view,
             editors,
             cards,
-            layouts
+            layouts,
+            refresh
         };
         const BrowserComponent = async({layout: layoutName, ...pageFilter}) => {
             const api = !noApi && await subjectApi(fetchMethod); // todo: call later
