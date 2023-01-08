@@ -74,6 +74,7 @@ interface modelObject<Subject extends string, Object extends string, ResultSet e
         filter?: {},
         resultSet?: ResultSet;
         fetch?: fetch<ResultSet>;
+        fetchValidation?: joi.Schema;
         get?: get<ResultSet>;
         create?: Create[],
         toolbar?: Omit<ActionButtonProps, 'getValues'>[],
