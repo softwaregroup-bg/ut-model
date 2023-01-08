@@ -111,7 +111,7 @@ export default ({
             const api = !noApi && await subjectApi(fetchMethod); // todo: call later
             const mergedSchema = merge({}, {
                 properties: {
-                    ...api?.params && {fetch: api?.params},
+                    ...api?.params?.type && {fetch: api?.params},
                     [defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items
                 }
             }, schema);
