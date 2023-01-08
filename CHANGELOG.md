@@ -1,3 +1,12 @@
+# [8.16.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.4...v8.16.0) (2023-01-08)
+
+
+### Features
+
+* browser validation handling ([f63b301](https://github.com/softwaregroup-bg/ut-model/commit/f63b3014d0f2f4eba64fa7292673a7ab2b7fb578))
+
+
+
 ## [8.15.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.3...v8.15.4) (2023-01-05)
 
 
