@@ -1,3 +1,13 @@
+## [8.16.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.16.0...v8.16.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* pass validation only when it exists ([e5bef62](https://github.com/softwaregroup-bg/ut-model/commit/e5bef62b98db19d9c30bf00b783c1ab31e9ad78e))
+* pass validation only when it exists ([e4a6683](https://github.com/softwaregroup-bg/ut-model/commit/e4a66838d539c03501ccdbb9053580ff518b27c3))
+
+
+
 # [8.16.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.15.4...v8.16.0) (2023-01-08)
 
 
