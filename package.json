@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "ut-prime": "^2.54.0"
+    "ut-prime": "^2.56.0"
   },
   "scripts": {
     "storybook": "ut-storybook start -p 6006 --ci",

@@ -16,7 +16,6 @@ export default ({
     cards,
     layouts,
     browser: {
-        details,
         noApi,
         title,
         create,
@@ -26,8 +25,6 @@ export default ({
         resultSet,
         navigator,
         toolbar,
-        table,
-        view,
         layout,
         permission: {
             browse: browsePermission,
@@ -35,7 +32,7 @@ export default ({
             edit: editPermission,
             delete: deletePermission
         },
-        refresh
+        ...explorer
     },
     methods: {
         fetch: fetchMethod = 'fetch',
@@ -66,7 +63,7 @@ export default ({
         if (keyField) lodashSet(defaultSchema.properties, keyField.replace(/\./g, '.properties.'), {action: ({id}) => handleTabShow([objectOpen, {id}], utMeta())});
         schema = merge(defaultSchema, schema);
         const columns = ((cards?.browse?.widgets) || [nameField]);
-        const handleFetch = (typeof fetch === 'function') ? params => objectFetch(fetch(params), utMeta()) : params => objectFetch(params, utMeta());
+        const handleFetch = params => objectFetch(params, utMeta());
         const handleNavigatorFetch = params => navigatorFetch(params, utMeta());
         function getActions(setFilter) {
             remove = remove || (instances => ({[keyField]: instances.map(instance => (instance[keyField]))}));
@@ -104,18 +101,20 @@ export default ({
             name: subjectObject + 'Browse',
             keyField,
             columns,
-            details,
             onDropdown,
-            table,
-            view,
             editors,
             cards,
             layouts,
-            refresh
+            ...explorer
         };
         const BrowserComponent = async({layout: layoutName, ...pageFilter}) => {
             const api = !noApi && await subjectApi(fetchMethod); // todo: call later
-            const mergedSchema = merge({}, {properties: {[defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items}}, schema);
+            const mergedSchema = merge({}, {
+                properties: {
+                    ...api?.params && {fetch: api?.params},
+                    [defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items
+                }
+            }, schema);
             const defaultPageFilter = merge({}, defaultFilter, {[defaultProps.resultSet]: pageFilter, layout: layoutName});
             function Browse(props) {
                 const [tenant, setTenant] = React.useState(null);
@@ -129,6 +128,7 @@ export default ({
                 return (
                     <Explorer
                         fetch={(!navigator || tenant != null) && handleFetch}
+                        fetchTransform={fetch}
                         filter={filter}
                         layout={layoutName || layout}
                         toolbar={toolbar}
