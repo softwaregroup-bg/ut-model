@@ -7,6 +7,7 @@ export default ({
     subject,
     object,
     subjectObject,
+    keyField,
     report: {
         noApi,
         title
@@ -46,6 +47,7 @@ export default ({
                     const props = {
                         schema: {
                             properties: {
+                                ...(api?.params?.type || api?.params?.properties || api?.params?.items) && {fetch: api?.params},
                                 params: paramsSchema.properties[object],
                                 result: resultSchema.properties[object]
                             }
@@ -56,6 +58,9 @@ export default ({
                         columns: reports[id]?.columns || cards?.browse?.widgets,
                         resultSet: reports?.[id]?.resultSet == null ? object : reports[id].resultSet,
                         methods,
+                        keyField: reports[id]?.keyField || keyField,
+                        table: reports[id]?.table,
+                        details: reports[id]?.details,
                         toolbar: [{
                             icon: 'pi pi-download',
                             permission: method,
