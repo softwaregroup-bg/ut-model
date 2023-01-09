@@ -1,3 +1,12 @@
+# [8.17.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.16.2...v8.17.0) (2023-01-09)
+
+
+### Features
+
+* report details ([11d4372](https://github.com/softwaregroup-bg/ut-model/commit/11d437265959c05010551404f5c9b34150cbdd79))
+
+
+
 ## [8.16.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.16.1...v8.16.2) (2023-01-08)
 
 
