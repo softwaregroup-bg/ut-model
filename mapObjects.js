@@ -1,8 +1,10 @@
 const merge = require('ut-function.merge');
+const get = require('lodash.get');
+const set = require('lodash.set');
 
 const {capital} = require('./lib');
 
-const defaults = (joi, {
+const defaults = ({joi}, {
     subject,
     object,
     subjectObject = `${subject}${capital(object)}`,
@@ -86,4 +88,13 @@ const defaults = (joi, {
     ...rest
 });
 
-module.exports = (ut, objects, mapper) => [].concat(objects).map(item => defaults(ut.joi, item(ut))).map(mapper);
+const models = {};
+
+const override = (ut, model) => {
+    const path = [model.subject, model.object];
+    const result = merge({}, get(models, path, defaults(ut, model)), model, get(ut.config, path));
+    set(models, path, result);
+    return result;
+};
+
+module.exports = (ut, objects, mapper) => [].concat(objects).map(item => override(ut, item(ut))).map(mapper);

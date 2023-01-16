@@ -10,6 +10,13 @@ export type model<
     Object extends string,
     ResultSet extends string = Object
 > = (joi: {joi: joi.Root}) => modelObject<Subject, Object, ResultSet>;
+
+export type override<
+    Subject extends string,
+    Object extends string,
+    ResultSet extends string = Object
+> = (joi: {joi: joi.Root}) => (Omit<modelObject<Subject, Object, ResultSet>, 'schema'> & {schema?: Schema})
+
 export type editor = Readonly<PropertyEditor>
 export type properties = Properties
 
@@ -30,7 +37,7 @@ interface Create extends Omit<Action, 'action'> {
     type?: string;
 }
 
-interface modelObject<Subject extends string, Object extends string, ResultSet extends string> {
+type modelObject<Subject extends string, Object extends string, ResultSet extends string> = {
     subject: Subject;
     object: Object;
     objectTitle?: string;
