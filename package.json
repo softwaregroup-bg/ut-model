@@ -7,6 +7,7 @@
   "dependencies": {
     "csv-parse": "5.3.3",
     "stream-transform": "3.2.1",
+    "lodash.get": "4.4.2",
     "lodash.set": "4.3.2",
     "ut-function.common-joi": "^1.9.1",
     "ut-function.merge": "^1.5.6"
