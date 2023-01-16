@@ -1,3 +1,12 @@
+# [8.18.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.17.0...v8.18.0) (2023-01-16)
+
+
+### Features
+
+* override models ([f92fef8](https://github.com/softwaregroup-bg/ut-model/commit/f92fef83f8fff11ba84e38385a4ada92436c8d99))
+
+
+
 # [8.17.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.16.2...v8.17.0) (2023-01-09)
 
 
