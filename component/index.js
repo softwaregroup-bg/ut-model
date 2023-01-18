@@ -1,5 +1,6 @@
 const subjectApi = require('./subjectApi');
 const mapObjects = require('../mapObjects');
+const models = {};
 
 module.exports = (objects, lib, override) => [
     function component(ut) {
@@ -25,7 +26,7 @@ module.exports = (objects, lib, override) => [
                 subjectObjectOpen(params),
                 subjectObjectNew(params),
                 subjectObjectReport(params)
-            ]).flat(1),
+            ], models).flat(1),
             override
         ).concat(
             subjects.map(subject => subjectReportOpen({subject}))

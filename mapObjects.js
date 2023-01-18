@@ -1,6 +1,7 @@
 const merge = require('ut-function.merge');
 const get = require('lodash.get');
 const set = require('lodash.set');
+const { compare, applyPatch } = require('fast-json-patch');
 
 const {capital} = require('./lib');
 
@@ -88,13 +89,12 @@ const defaults = ({joi}, {
     ...rest
 });
 
-const models = {};
-
-const override = (ut, model) => {
+const override = (ut, model, models) => {
     const path = [model.subject, model.object];
-    const result = merge({}, get(models, path, defaults(ut, model)), model, get(ut.config, path));
+    const prev = get(models, path);
+    const result = merge({}, prev || defaults(ut, model), model, get(ut.config, path));
     set(models, path, result);
     return result;
 };
 
-module.exports = (ut, objects, mapper) => [].concat(objects).map(item => override(ut, item(ut))).map(mapper);
+module.exports = (ut, objects, mapper, models) => [].concat(objects).map(item => override(ut, item(ut), models)).map(mapper);
