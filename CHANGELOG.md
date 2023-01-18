@@ -1,3 +1,13 @@
+## [8.18.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.0...v8.18.1) (2023-01-18)
+
+
+### Bug Fixes
+
+* override components only ([462018f](https://github.com/softwaregroup-bg/ut-model/commit/462018fbdb7fb55787181726d5160b25a7a19ab7))
+* override components only ([fd96a0d](https://github.com/softwaregroup-bg/ut-model/commit/fd96a0d5537d5f5ef57de050396e2719a1549bed))
+
+
+
 # [8.18.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.17.0...v8.18.0) (2023-01-16)
 
 
