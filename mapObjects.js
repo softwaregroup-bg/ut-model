@@ -1,7 +1,6 @@
 const merge = require('ut-function.merge');
 const get = require('lodash.get');
 const set = require('lodash.set');
-const { compare, applyPatch } = require('fast-json-patch');
 
 const {capital} = require('./lib');
 
