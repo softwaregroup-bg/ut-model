@@ -9,13 +9,13 @@ export type model<
     Subject extends string,
     Object extends string,
     ResultSet extends string = Object
-> = (joi: {joi: joi.Root}) => modelObject<Subject, Object, ResultSet>;
+> = (api: {joi: joi.Root}) => modelObject<Subject, Object, ResultSet>;
 
 export type override<
     Subject extends string,
     Object extends string,
     ResultSet extends string = Object
-> = (joi: {joi: joi.Root}) => (Omit<modelObject<Subject, Object, ResultSet>, 'schema'> & {schema?: Schema})
+> = (api: {joi: never}) => (Omit<modelObject<Subject, Object, ResultSet>, 'schema'> & {schema?: Schema})
 
 export type editor = Readonly<PropertyEditor>
 export type properties = Properties
