@@ -1,3 +1,12 @@
+## [8.18.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.2...v8.18.3) (2023-01-21)
+
+
+### Bug Fixes
+
+* report selection ([7981b06](https://github.com/softwaregroup-bg/ut-model/commit/7981b061e9d6beb0d769ccf136257614e6da09d8))
+
+
+
 ## [8.18.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.1...v8.18.2) (2023-01-18)
 
 
