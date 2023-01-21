@@ -30,6 +30,7 @@ export default ({
                         schema: report?.schema,
                         params: report?.params || Object.keys(report?.schema?.properties?.params?.properties).filter(name => !['pageNumber', 'pageSize'].includes(name)),
                         columns: report?.columns || Object.keys(report?.schema?.properties?.result?.properties),
+                        validation: report?.validation,
                         resultSet,
                         methods,
                         onDropdown: names => portalDropdownList(names, utMeta()),

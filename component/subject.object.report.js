@@ -59,7 +59,10 @@ export default ({
                         resultSet: reports?.[id]?.resultSet == null ? object : reports[id].resultSet,
                         methods,
                         keyField: reports[id]?.keyField || keyField,
-                        table: reports[id]?.table,
+                        table: {
+                            selectionMode: 'multiple',
+                            ...reports[id]?.table
+                        },
                         details: reports[id]?.details,
                         toolbar: [{
                             icon: 'pi pi-download',
