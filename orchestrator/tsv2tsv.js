@@ -13,13 +13,19 @@ module.exports = ({
      * @param {fs.PathLike} target
      * @param {string} actorId
      */
-    async tsv2tsv(source, target, actorId, {object = undefined, conversion = undefined, ...options} = {}) {
-        let rows = 0;
+    async tsv2tsv(source, target, actorId, {object = undefined, conversion = undefined, ngramFilename = undefined, ...options} = {}, $meta) {
+        const context = {rows: 1, ngramFilename};
 
-        const transformer = transform(function(record, callback) {
-            rows++;
-            convert?.(record, object, conversion);
-            callback(null, actorId + '\t' + record.join('\t') + '\n');
+        const transformer = transform(async function(record, callback) {
+            try {
+                record = await convert(record, object, conversion, context, $meta);
+                if (record) {
+                    context.rows++;
+                    callback(null, actorId + '\t' + record.join('\t') + '\n');
+                } else callback(null);
+            } catch (error) {
+                callback(error);
+            }
         });
 
         const rd = fs.createReadStream(source);
@@ -29,13 +35,14 @@ module.exports = ({
                 const parser = parse({
                     delimiter: '\t',
                     relax_column_count: true,
+                    bom: true,
                     ...options
                 });
                 transformer.on('error', reject);
                 parser.on('error', reject);
                 rd.on('error', reject);
                 wr.on('error', reject);
-                wr.on('finish', () => resolve(rows));
+                wr.on('finish', () => resolve(context));
                 rd.pipe(parser).pipe(transformer).pipe(wr);
             });
         } catch (error) {

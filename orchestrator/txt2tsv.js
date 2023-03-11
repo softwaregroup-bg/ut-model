@@ -7,12 +7,13 @@ module.exports = ({
         convert
     }
 }) => ({
+    // convert file from TXT format to TSV format without embedded tabs
     /**
      * @param {fs.PathLike} source
      * @param {fs.PathLike} target
      * @param {string} actorId
      */
-    async csv2tsv(source, target, actorId, {object = undefined, conversion = undefined, ngramFilename = undefined, ...options} = {}, $meta) {
+    async txt2tsv(source, target, actorId, {object = undefined, conversion = undefined, ngramFilename = undefined, ...options} = {}, $meta) {
         const context = {rows: 1, ngramFilename};
 
         const transformer = transform(async function(record, callback) {
@@ -32,6 +33,7 @@ module.exports = ({
         try {
             return await new Promise(function(resolve, reject) {
                 const parser = parse({
+                    delimiter: '\r',
                     relax_column_count: true,
                     bom: true,
                     ...options
