@@ -69,7 +69,7 @@ module.exports = ({subject, object}) =>
                 }
                 try {
                     importResult = await stagingImport({file: tsv}, $meta);
-                    await ngramsImport({file: ngramFilename}, $meta);
+                    if (fs.existsSync(ngramFilename)) await ngramsImport({file: ngramFilename}, $meta);
                 } finally {
                     try {
                         fs.unlinkSync(tsv);
