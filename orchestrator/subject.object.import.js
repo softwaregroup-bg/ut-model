@@ -40,7 +40,7 @@ module.exports = ({subject, object}) =>
                 const parts = baseFileName.split('.');
                 const ngramFilename = join(dir, `${parts[0]}-ngrams`);
                 let tsv = filename + '.tsv';
-                const options = {conversion, ngramFilename};
+                const options = {object, conversion, ngramFilename};
                 try {
                     const convert = {
                         txt: txt2tsv,
