@@ -50,7 +50,9 @@ const defaults = ({joi}, {
         delete: `${subject}.${object}.delete`,
         get: `${subject}.${object}.get`,
         edit: `${subject}.${object}.edit`,
-        report: `${subject}.${object}.report`
+        report: `${subject}.${object}.report`,
+        import: `${subject}.${object}.import`,
+        start: `${subject}.${object}.start`
     },
     report: {
         title: `${objectTitle} Report`

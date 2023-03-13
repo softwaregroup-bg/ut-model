@@ -1,4 +1,4 @@
-const {extname} = require('path');
+const {extname, basename, dirname, join} = require('path');
 const fs = require('fs');
 
 module.exports = ({subject, object}) =>
@@ -6,11 +6,14 @@ module.exports = ({subject, object}) =>
     ({
         import: {
             [`db/${subject}.${object}.clear`]: clear,
-            [`db/${subject}.${object}.import`]: convert,
-            [`db/${subject}.${object}.fetch`]: fetch,
-            [`db/${subject}.${object}Staging.import`]: stagingImport
+            [`db/${subject}.${object}.convert`]: convert,
+            [`db/${subject}.${object}Row.fetch`]: fetch,
+            [`db/${subject}.${object}.add`]: add,
+            [`db/${subject}.${object}RowStaging.import`]: stagingImport,
+            [`db/${subject}.${object}RowNgramsStaging.import`]: ngramsImport
         },
         lib: {
+            txt2tsv,
             tsv2tsv,
             csv2tsv,
             xls2tsv
@@ -26,24 +29,30 @@ module.exports = ({subject, object}) =>
             ...rest
         }, $meta) {
             let importResult;
+            const batchRow = {};
             if (file?.originalFilename) {
                 format = format || extname(file?.originalFilename)?.slice(1) || 'csv';
-                objectRest.filename = file?.originalFilename;
                 await clear(objectRest, $meta);
                 const filename = file.filename;
+
+                const baseFileName = basename(filename);
+                const dir = dirname(filename);
+                const parts = baseFileName.split('.');
+                const ngramFilename = join(dir, `${parts[0]}-ngrams`);
                 let tsv = filename + '.tsv';
-                const options = {object, conversion};
+                const options = {object, conversion, ngramFilename};
                 try {
                     const convert = {
+                        txt: txt2tsv,
                         tsv: tsv2tsv,
                         csv: csv2tsv,
                         xls: xls2tsv,
                         xlsx: xls2tsv
                     }[format];
                     if (!convert) throw new Error('Unknown extension ' + format);
-                    await convert(filename, tsv, $meta.auth?.actorId, options);
+                    await convert(filename, tsv, $meta.auth?.actorId, options, $meta);
                     if (['xls', 'xlsx'].includes(format)) {
-                        await tsv2tsv(tsv, tsv + '_', $meta.auth?.actorId, options);
+                        await tsv2tsv(tsv, tsv + '_', $meta.auth?.actorId, options, $meta);
                         try {
                             fs.unlinkSync(tsv);
                         } catch (e) {
@@ -60,17 +69,24 @@ module.exports = ({subject, object}) =>
                 }
                 try {
                     importResult = await stagingImport({file: tsv}, $meta);
+                    if (fs.existsSync(ngramFilename)) await ngramsImport({file: ngramFilename}, $meta);
                 } finally {
                     try {
                         fs.unlinkSync(tsv);
+                        if (fs.existsSync(ngramFilename)) fs.unlinkSync(ngramFilename);
                     } catch (e) {
                         this.error(e, $meta);
                     }
                 }
-                await convert(objectRest, $meta);
+                batchRow.batchId = (await convert({
+                    ...objectRest,
+                    fileName: file?.originalFilename
+                }, $meta))?.batch?.batchId;
+            } else {
+                batchRow.batchId = (await add({objectRest, ...rest}, $meta))?.batch?.batchId;
             }
             return {
-                ...await fetch({[`${object}`]: objectRest, ...rest}, $meta),
+                ...await fetch({batchRow}, $meta),
                 ...importResult
             };
         }

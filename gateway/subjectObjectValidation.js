@@ -11,11 +11,13 @@ module.exports = ({
         add,
         edit,
         remove,
-        report
+        report,
+        import: importMethod,
+        start
     }
 }) =>
     /** @type { import('ut-run').validationFactory } */
-    function subjectObjectValidation({joi, lib: {paging, orderBy, bigintNotNull}}) {
+    function subjectObjectValidation({joi, lib: {paging, orderBy, bigintNotNull, bigintNull}}) {
         // const fields = ;
         const single = schema2joi(joi, schema?.properties?.[object]?.properties);
         const filter = schema2joi(joi, schema?.properties?.[object]?.properties, 'optional');
@@ -79,6 +81,35 @@ module.exports = ({
                     [object]: multiple,
                     pagination
                 })
+            }),
+            [importMethod]: () => ({
+                params: joi.object().keys({
+                    batch: joi.object().keys({
+                        file: joi.any(),
+                        batchId: bigintNull,
+                        description: joi.string(),
+                        format: joi.string().valid('csv', 'tsv', 'xls', 'xlsx', 'txt')
+                    }),
+                    batchRow: joi.array().items(joi.object())
+                }),
+                body: {
+                    output: 'stream',
+                    parse: false,
+                    allow: 'multipart/form-data'
+                },
+                result: joi.object().keys({
+                    batch: joi.object(),
+                    batchRow: joi.array(),
+                    rows: joi.number().integer().label('Imported Rows'),
+                    errors: joi.string().label('Import Errors').allow('', null),
+                    pagination
+                })
+            }),
+            [start]: () => ({
+                params: joi.object().keys({
+                    batchId: bigintNotNull
+                }),
+                result: joi.object().unknown(true)
             })
         };
     };

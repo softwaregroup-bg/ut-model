@@ -3,6 +3,7 @@ module.exports = (objects, lib = []) => [
     function model(api) {
         return [
             ...lib,
+            require('./txt2tsv'),
             require('./tsv2tsv'),
             require('./csv2tsv'),
             require('./xls2tsv'),

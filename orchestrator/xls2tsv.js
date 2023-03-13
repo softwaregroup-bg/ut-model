@@ -3,7 +3,7 @@ const exec = require('child_process').spawnSync;
 
 // convert file from XLS format to TSV format
 module.exports = () => ({
-    xls2csv(source, target, options) {
+    xls2tsv(source, target, options) {
         const execResult = exec(process.argv[0], [
             xlsx,
             '--output',
