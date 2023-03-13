@@ -1,3 +1,12 @@
+# [8.19.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.3...v8.19.0) (2023-03-13)
+
+
+### Features
+
+* **CBI-1353:** updates on subject.object.import, ngrams file ([#9](https://github.com/softwaregroup-bg/ut-model/issues/9)) ([33148ce](https://github.com/softwaregroup-bg/ut-model/commit/33148ced295653a1f8f4aa8e434b2fb4d423c372))
+
+
+
 ## [8.18.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.2...v8.18.3) (2023-01-21)
 
 
