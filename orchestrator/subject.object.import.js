@@ -10,7 +10,7 @@ module.exports = ({subject, object}) =>
             [`db/${subject}.${object}Row.fetch`]: fetch,
             [`db/${subject}.${object}.add`]: add,
             [`db/${subject}.${object}RowStaging.import`]: stagingImport,
-            [`db/${subject}.${object}RowNgrams.import`]: ngramsImport
+            [`db/${subject}.${object}RowNgramsStaging.import`]: ngramsImport
         },
         lib: {
             txt2tsv,
