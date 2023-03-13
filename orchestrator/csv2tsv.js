@@ -13,13 +13,13 @@ module.exports = ({
      * @param {string} actorId
      */
     async csv2tsv(source, target, actorId, {object = undefined, conversion = undefined, ngramFilename = undefined, ...options} = {}, $meta) {
-        const context = {rows: 1, ngramFilename};
+        const context = {rows: 0, ngramFilename};
 
         const transformer = transform(async function(record, callback) {
             try {
+                context.rows++;
                 record = await convert(record, object, conversion, context, $meta);
                 if (record) {
-                    context.rows++;
                     callback(null, actorId + '\t' + record.join('\t') + '\n');
                 } else callback(null);
             } catch (error) {
