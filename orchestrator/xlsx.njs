@@ -2,14 +2,14 @@
 /* eslint-disable no-console */
 /* eslint-disable no-process-exit */
 /* eslint-disable camelcase */
-/* xlsx.js (C) 2013-present  SheetJS -- http://sheetjs.com */
+/* index.js (C) 2020-present  SheetJS -- http://sheetjs.com */
 /* eslint-env node */
 /* vim: set ts=2 ft=javascript: */
 const n = 'xlsx';
 const X = require('xlsx');
 require('exit-on-epipe');
-const fs = require('fs'); const program = require('commander');
-program
+const fs = require('fs'); const commander = require('commander');
+commander
     .version(X.version)
     .usage('[options] <file> [sheetname]')
     .option('-f, --file <file>', 'use specified workbook')
@@ -26,12 +26,14 @@ program
     .option('-Y, --ods', 'emit ODS  to <sheetname> or <file>.ods')
     .option('-8, --xls', 'emit XLS  to <sheetname> or <file>.xls (BIFF8)')
     .option('-5, --biff5', 'emit XLS  to <sheetname> or <file>.xls (BIFF5)')
-// .option('-4, --biff4','emit XLS  to <sheetname> or <file>.xls (BIFF4)')
-// .option('-3, --biff3','emit XLS  to <sheetname> or <file>.xls (BIFF3)')
+    .option('-4, --biff4', 'emit XLS  to <sheetname> or <file>.xls (BIFF4)')
+    .option('-3, --biff3', 'emit XLS  to <sheetname> or <file>.xls (BIFF3)')
     .option('-2, --biff2', 'emit XLS  to <sheetname> or <file>.xls (BIFF2)')
     .option('-i, --xla', 'emit XLA to <sheetname> or <file>.xla')
     .option('-6, --xlml', 'emit SSML to <sheetname> or <file>.xls (2003 XML)')
     .option('-T, --fods', 'emit FODS to <sheetname> or <file>.fods (Flat ODS)')
+    .option('--wk3', 'emit WK3  to <sheetname> or <file>.txt (Lotus WK3)')
+    .option('--numbers', 'emit NUMBERS to <sheetname> or <file>.numbers')
 
     .option('-S, --formulae', 'emit list of values and formulae')
     .option('-j, --json', 'emit formatted JSON (all fields text)')
@@ -45,6 +47,7 @@ program
     .option('-E, --eth', 'emit ETH  to <sheetname> or <file>.eth (Ethercalc)')
     .option('-t, --txt', 'emit TXT  to <sheetname> or <file>.txt (UTF-8 TSV)')
     .option('-r, --rtf', 'emit RTF  to <sheetname> or <file>.txt (Table RTF)')
+    .option('--wk1', 'emit WK1  to <sheetname> or <file>.txt (Lotus WK1)')
     .option('-z, --dump', 'dump internal representation as JSON')
     .option('--props', 'dump workbook properties as CSV')
 
@@ -62,10 +65,7 @@ program
     .option('--sparse', 'sparse mode')
     .option('-q, --quiet', 'quiet mode');
 
-program.on('--help', function() {
-    console.log('  Default output format is CSV');
-    console.log('  Support email: dev@sheetjs.com');
-    console.log('  Web Demo: http://oss.sheetjs.com/js-' + n + '/');
+commander.on('--help', function() {
 });
 
 /* flag, bookType, default ext */
@@ -77,19 +77,22 @@ const workbook_formats = [
     ['xls', 'xls', 'xls'],
     ['xla', 'xla', 'xla'],
     ['biff5', 'biff5', 'xls'],
+    ['numbers', 'numbers', 'numbers'],
     ['ods', 'ods', 'ods'],
-    ['fods', 'fods', 'fods']
+    ['fods', 'fods', 'fods'],
+    ['wk3', 'wk3', 'wk3']
 ];
 const wb_formats_2 = [
     ['xlml', 'xlml', 'xls']
 ];
-program.parse(process.argv);
+commander.parse(process.argv);
 
 let filename = ''; let sheetname = '';
-if (program.args[0]) {
-    filename = program.args[0];
-    if (program.args[1]) sheetname = program.args[1];
+if (commander.args[0]) {
+    filename = commander.args[0];
+    if (commander.args[1]) sheetname = commander.args[1];
 }
+const program = commander.opts();
 if (program.sheet) sheetname = program.sheet;
 if (program.file) filename = program.file;
 
@@ -117,6 +120,7 @@ function wb_fmt() {
     seen = true;
     opts.cellFormula = true;
     opts.cellNF = true;
+    opts.xlfn = true;
     if (program.output) sheetname = program.output;
 }
 function isfmt(m/*: string */)/*: boolean */ {
@@ -142,10 +146,10 @@ if (program.all) {
     opts.bookVBA = true;
     opts.cellNF = true;
     opts.cellHTML = true;
-    opts.cellText = false;
     opts.cellStyles = true;
     opts.sheetStubs = true;
     opts.cellDates = true;
+    wopts.cellFormula = true;
     wopts.cellStyles = true;
     wopts.sheetStubs = true;
     wopts.bookVBA = true;
@@ -186,6 +190,12 @@ if (program.props) {
 workbook_formats.forEach(function(m) {
     if (program[m[0]] || isfmt(m[0])) {
         wopts.bookType = m[1];
+        if (wopts.bookType == 'numbers') {
+            try {
+                const XLSX_ZAHL = require('xlsx/dist/xlsx.zahl');
+                wopts.numbers = XLSX_ZAHL;
+            } catch (e) {}
+        }
         if (wb) X.writeFile(wb, program.output || sheetname || ((filename || '') + '.' + m[2]), wopts);
         process.exit(0);
     }
@@ -231,12 +241,13 @@ if (!program.quiet && !program.book) console.error(target_sheet);
     ['rtf', '.rtf'],
     ['txt', '.txt'],
     ['dbf', '.dbf'],
+    ['wk1', '.wk1'],
     ['dif', '.dif']
 ].forEach(function(m) {
     if (program[m[0]] || isfmt(m[1])) {
         wopts.bookType = m[0];
         if (program.book) {
-        /*:: if(wb == null) throw new Error("Unreachable"); */
+            /*:: if(wb == null) throw new Error("Unreachable"); */
             wb.SheetNames.forEach(function(n, i) {
                 wopts.sheet = n;
                 X.writeFile(wb, (program.output || sheetname || filename || '') + m[1] + '.' + i, wopts);
@@ -252,7 +263,7 @@ function doit(cb) {
     /*:: if(!wb) throw new Error("unreachable"); */
     if (program.book) {
         wb.SheetNames.forEach(function(n, i) {
-        /*:: if(!wb) throw new Error("unreachable"); */
+            /*:: if(!wb) throw new Error("unreachable"); */
             outit(cb(wb.Sheets[n]), (program.output || sheetname || filename) + '.' + i);
         });
     } else outit(cb(ws), program.output);
