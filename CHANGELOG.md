@@ -1,3 +1,12 @@
+## [8.19.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.0...v8.19.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* update xlsx / commander ([2353df3](https://github.com/softwaregroup-bg/ut-model/commit/2353df3e031d2824cc477a67daf5685380cc2dc4))
+
+
+
 # [8.19.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.18.3...v8.19.0) (2023-03-13)
 
 
