@@ -1,3 +1,12 @@
+## [8.19.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.1...v8.19.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* pass report params ([8270009](https://github.com/softwaregroup-bg/ut-model/commit/827000912be7e54c73c53a2df708e5931cece198))
+
+
+
 ## [8.19.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.0...v8.19.1) (2023-03-14)
 
 
