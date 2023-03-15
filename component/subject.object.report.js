@@ -39,7 +39,7 @@ export default ({
             [`${subject}.${object}.report`]: () => ({
                 title,
                 permission: `${subject}.${object}.report`,
-                component: async({id}) => {
+                component: async({id, ...init}) => {
                     const api = !noApi && await subjectApi(fetchMethod);
                     const resultSchema = merge({}, {properties: {[object]: api?.result?.properties?.[object]?.items}}, schema);
                     const paramsSchema = merge({}, {properties: {[object]: api?.params?.properties?.[object]}}, schema);
@@ -69,6 +69,7 @@ export default ({
                             permission: method,
                             method
                         }].filter(item => item.method),
+                        init,
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };

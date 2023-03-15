@@ -21,7 +21,7 @@ export default ({
             [`${subject}.report.open`]: () => ({
                 title: 'Report',
                 permission: `${subject}.report.open`,
-                component: async({id: reportId}) => {
+                component: async({id: reportId, ...init}) => {
                     const {report} = await reportGet({reportId}, utMeta());
                     const resultSet = report?.resultSet || 'result';
                     const properties = report?.schema?.properties?.params?.properties;
@@ -33,6 +33,7 @@ export default ({
                         validation: report?.validation,
                         resultSet,
                         methods,
+                        init,
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: ({
                             paging,
