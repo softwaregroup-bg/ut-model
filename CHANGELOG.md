@@ -1,3 +1,12 @@
+# [8.20.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.2...v8.20.0) (2023-03-20)
+
+
+### Features
+
+* browser layouts ([fc886aa](https://github.com/softwaregroup-bg/ut-model/commit/fc886aa46369dfb7660757a5a5da23ed7f41c7a5))
+
+
+
 ## [8.19.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.1...v8.19.2) (2023-03-15)
 
 
