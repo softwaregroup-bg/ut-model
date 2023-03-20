@@ -70,6 +70,7 @@ export default ({
                             method
                         }].filter(item => item.method),
                         init,
+                        filter: {layout: id},
                         onDropdown: names => portalDropdownList(names, utMeta()),
                         fetch: params => utMethod(reports?.[id]?.fetch || fetchMethod)((!reports?.[id]?.fetch && typeof fetch === 'function') ? fetch(params) : params, utMeta())
                     };

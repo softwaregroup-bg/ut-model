@@ -14,18 +14,18 @@ export default ({
     tenantField,
     schema,
     cards,
-    layouts,
+    browsers: layouts,
     browser: {
-        noApi,
+        noApi: browserNoApi,
         title,
-        create,
-        filter: defaultFilter,
-        fetch,
-        delete: remove,
-        resultSet,
-        navigator,
-        toolbar,
-        layout,
+        create: browserCreate,
+        filter: browserFilter,
+        fetch: browserFetch,
+        delete: browserDelete,
+        resultSet: browserResultSet,
+        navigator: browserNavigator,
+        toolbar: browserToolbar,
+        layout: browserLayout,
         permission: {
             browse: browsePermission,
             add: addPermission,
@@ -65,7 +65,7 @@ export default ({
         const columns = ((cards?.browse?.widgets) || [nameField]);
         const handleFetch = params => objectFetch(params, utMeta());
         const handleNavigatorFetch = params => navigatorFetch(params, utMeta());
-        function getActions(setFilter) {
+        function getActions(setFilter, remove, create, toolbar) {
             remove = remove || (instances => ({[keyField]: instances.map(instance => (instance[keyField]))}));
             const handleDelete = async({selected}) => {
                 try {
@@ -97,7 +97,7 @@ export default ({
         }
         const onDropdown = names => portalDropdownList(names, utMeta());
         const defaultProps = {
-            resultSet: resultSet || object,
+            // resultSet: resultSet || object,
             name: subjectObject + 'Browse',
             keyField,
             columns,
@@ -108,14 +108,27 @@ export default ({
             ...explorer
         };
         const BrowserComponent = async({layout: layoutName, ...pageFilter}) => {
+            const {
+                noApi = browserNoApi,
+                create = browserCreate,
+                filter: defaultFilter = browserFilter,
+                fetch = browserFetch,
+                delete: remove = browserDelete,
+                resultSet = browserResultSet || object,
+                navigator = browserNavigator,
+                toolbar = browserToolbar,
+                layout = browserLayout,
+                ...layoutProps
+            } = (layoutName && layouts[layoutName]) || {};
+
             const api = !noApi && await subjectApi(fetchMethod); // todo: call later
             const mergedSchema = merge({}, {
                 properties: {
                     ...(api?.params?.type || api?.params?.properties || api?.params?.items) && {fetch: api?.params},
-                    [defaultProps.resultSet]: api?.result?.properties?.[defaultProps.resultSet]?.items
+                    [resultSet]: api?.result?.properties?.[resultSet]?.items
                 }
             }, schema);
-            const defaultPageFilter = merge({}, defaultFilter, {[defaultProps.resultSet]: pageFilter, layout: layoutName});
+            const defaultPageFilter = merge({}, defaultFilter, {[resultSet]: pageFilter, layout: layoutName});
             function Browse(props) {
                 const [tenant, setTenant] = React.useState(null);
                 const [filter, setFilter] = React.useState(navigator ? lodashSet(defaultPageFilter, tenantField, tenant) : defaultPageFilter);
@@ -123,17 +136,18 @@ export default ({
                     setTenant(value);
                     setFilter(prev => lodashSet({...prev}, tenantField, value));
                 }, [setTenant, setFilter]);
-                const toolbar = React.useMemo(() => getActions(setFilter), [setFilter]);
-                const explorerProps = React.useMemo(() => merge({schema: mergedSchema}, defaultProps, props), [props]);
+                const explorerToolbar = React.useMemo(() => toolbar && getActions(setFilter, remove, create, toolbar), [setFilter]);
+                const explorerProps = React.useMemo(() => merge({schema: mergedSchema, resultSet}, defaultProps, props), [props]);
                 return (
                     <Explorer
                         fetch={(!navigator || tenant != null) && handleFetch}
                         fetchTransform={fetch}
                         filter={filter}
                         layout={layoutName || layout}
-                        toolbar={toolbar}
+                        toolbar={explorerToolbar}
                         methods={methods}
                         {...explorerProps}
+                        {...layoutProps}
                     >
                         {navigator && <Navigator
                             fetch={handleNavigatorFetch}

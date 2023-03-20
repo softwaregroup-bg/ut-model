@@ -74,6 +74,7 @@ const defaults = ({joi}, {
     layouts: {
         edit: ['hidden', 'edit']
     },
+    browsers: {},
     reports: {},
     editor: {
         resultSet: object

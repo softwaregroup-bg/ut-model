@@ -2,6 +2,7 @@ import joi from 'joi'
 import type {Schema, PropertyEditor, Cards, Layouts, Layout, Action, Properties, DataTable, DataView} from 'ut-prime/core/types';
 import type {Props as ActionButtonProps} from 'ut-prime/core/ActionButton/ActionButton.types';
 import {Props as ReportProps} from 'ut-prime/core/Report/Report.types';
+import {Props as ExplorerProps} from 'ut-prime/core/Explorer/Explorer.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
 import type {pageSet} from 'ut-portal';
 
@@ -37,6 +38,20 @@ interface Create extends Omit<Action, 'action'> {
     type?: string;
 }
 
+interface BrowserLayout<ResultSet extends string> extends Partial<Omit<ExplorerProps, 'fetch' | 'toolbar' | 'layout'>> {
+    fetch?: fetch<ResultSet>;
+    toolbar?: false | Omit<ActionButtonProps, 'getValues'>[],
+    layout?: Layout;
+    navigator?: boolean | {
+        resultSet?: string;
+        key?: string;
+        title?: string;
+    },
+    get?: get<ResultSet>;
+    create?: Create[]
+}
+
+
 type modelObject<Subject extends string, Object extends string, ResultSet extends string> = {
     subject: Subject;
     object: Object;
@@ -61,34 +76,13 @@ type modelObject<Subject extends string, Object extends string, ResultSet extend
         delete?: string;
         navigatorFetch?: string;
     },
-    browser?: {
+    browser?: BrowserLayout<ResultSet> & {
         title?: string;
-        navigator?: boolean | {
-            resultSet?: string;
-            key?: string;
-            title?: string;
-        },
-        details?: {
-            page: string,
-            params?: Record<string, unknown>,
-            [props: string]: unknown
-        },
         permission?: {
             add?: boolean | string;
             delete?: boolean | string;
             edit?: boolean | string;
         }
-        filter?: {},
-        resultSet?: ResultSet;
-        fetch?: fetch<ResultSet>;
-        fetchValidation?: joi.Schema;
-        get?: get<ResultSet>;
-        create?: Create[],
-        toolbar?: Omit<ActionButtonProps, 'getValues'>[],
-        table?: DataTable,
-        view?: DataView,
-        layout?: Layout;
-        refresh?: boolean;
     },
     editor?: {
 
@@ -96,6 +90,7 @@ type modelObject<Subject extends string, Object extends string, ResultSet extend
     schema: Schema,
     cards?: Cards,
     layouts?: Layouts,
+    browsers?: Record<string, BrowserLayout<ResultSet>>,
     reports?: Record<string, Partial<Pick<ReportProps, 'columns' | 'params' | 'resultSet'>> & {fetch?: string}>
 }
 

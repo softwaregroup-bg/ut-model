@@ -24,6 +24,7 @@ module.exports = ({
             [subjectObject]: {
                 objects: instances = trees({keyField, nameField: nameField.split('.').pop(), tenantField}),
                 relations = [],
+                layouts = {},
                 fetch = null,
                 get = null,
                 report = null
@@ -52,7 +53,8 @@ module.exports = ({
         };
         const filter = async criteria => {
             const condition = criteria && criteria[object] && Object.entries(criteria[object]);
-            const result = !condition ? instances : instances.filter(
+            const where = criteria?.layout ? layouts?.[criteria?.layout] ?? instances : instances;
+            const result = !condition ? where : where.filter(
                 instance => condition.every(
                     ([name, value]) => value == null || instance[name] === value || String(instance[name]).toLowerCase().includes(String(value).toLowerCase())
                 )
