@@ -136,7 +136,7 @@ export default ({
                     setTenant(value);
                     setFilter(prev => lodashSet({...prev}, tenantField, value));
                 }, [setTenant, setFilter]);
-                const explorerToolbar = React.useMemo(() => toolbar && getActions(setFilter, remove, create, toolbar), [setFilter]);
+                const explorerToolbar = React.useMemo(() => toolbar && getActions(setFilter, remove, create, Array.isArray(toolbar) ? toolbar : []), [setFilter]);
                 const explorerProps = React.useMemo(() => merge({schema: mergedSchema, resultSet}, defaultProps, props), [props]);
                 return (
                     <Explorer
