@@ -1,3 +1,12 @@
+## [8.20.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.20.0...v8.20.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* toolbar handling ([585bac4](https://github.com/softwaregroup-bg/ut-model/commit/585bac4fb08b4a6ab61cde4367e80c84e63b439e))
+
+
+
 # [8.20.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.19.2...v8.20.0) (2023-03-20)
 
 
