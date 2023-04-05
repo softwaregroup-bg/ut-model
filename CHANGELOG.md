@@ -1,3 +1,12 @@
+# [8.21.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.20.1...v8.21.0) (2023-04-05)
+
+
+### Features
+
+* Editor onLoaded handler ([7110913](https://github.com/softwaregroup-bg/ut-model/commit/71109132fab42dd92cee47516114970bf152e51b))
+
+
+
 ## [8.20.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.20.0...v8.20.1) (2023-03-24)
 
 
