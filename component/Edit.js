@@ -14,11 +14,7 @@ export default ({
     layouts,
     editor: {
         noApi,
-        resultSet,
-        toolbar,
-        buttons,
-        onFieldChange,
-        customization
+        ...editor
     },
     methods: {
         init: initMethod,
@@ -64,14 +60,11 @@ export default ({
                     layouts,
                     layoutName,
                     keyField,
-                    resultSet,
                     name: subjectObject,
                     methods,
                     value,
                     toolbar,
-                    buttons,
-                    customization,
-                    onFieldChange,
+                    ...editor,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
                     onAdd: params => handleAdd(params, utMeta()),

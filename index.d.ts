@@ -3,6 +3,7 @@ import type {Schema, PropertyEditor, Cards, Layouts, Layout, Action, Properties,
 import type {Props as ActionButtonProps} from 'ut-prime/core/ActionButton/ActionButton.types';
 import {Props as ReportProps} from 'ut-prime/core/Report/Report.types';
 import {Props as ExplorerProps} from 'ut-prime/core/Explorer/Explorer.types';
+import {Props as EditorProps} from 'ut-prime/core/Editor/Editor.types';
 import {handlerSet, libFactory, validationOrLib} from 'ut-run';
 import type {pageSet} from 'ut-portal';
 
@@ -40,7 +41,8 @@ interface Create extends Omit<Action, 'action'> {
 
 interface BrowserLayout<ResultSet extends string> extends Partial<Omit<ExplorerProps, 'fetch' | 'toolbar' | 'layout'>> {
     fetch?: fetch<ResultSet>;
-    toolbar?: false | Omit<ActionButtonProps, 'getValues'>[],
+    toolbar?: false | Omit<ActionButtonProps, 'getValues'>[] | string,
+    columns?: string,
     layout?: Layout;
     navigator?: boolean | {
         resultSet?: string;
@@ -84,8 +86,8 @@ type modelObject<Subject extends string, Object extends string, ResultSet extend
             edit?: boolean | string;
         }
     },
-    editor?: {
-
+    editor?: EditorProps & {
+        noApi?: boolean
     },
     schema: Schema,
     cards?: Cards,
