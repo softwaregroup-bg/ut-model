@@ -17,7 +17,7 @@ module.exports = ({
     }
 }) =>
     /** @type { import('ut-run').validationFactory } */
-    function subjectObjectValidation({joi, lib: {paging, orderBy, bigintNotNull, bigintNull}}) {
+    function subjectObjectValidation({joi, lib: {paging, orderBy, bigintNotNull, bigintNull, stringNull}}) {
         // const fields = ;
         const single = schema2joi(joi, schema?.properties?.[object]?.properties);
         const filter = schema2joi(joi, schema?.properties?.[object]?.properties, 'optional');
@@ -88,7 +88,8 @@ module.exports = ({
                         file: joi.any(),
                         batchId: bigintNull,
                         description: joi.string(),
-                        format: joi.string().valid('csv', 'tsv', 'xls', 'xlsx', 'txt')
+                        format: joi.string().valid('csv', 'tsv', 'xls', 'xlsx', 'txt'),
+                        conversion: stringNull
                     }),
                     batchRow: joi.array().items(joi.object())
                 }),
