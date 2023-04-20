@@ -84,7 +84,7 @@ module.exports = ({subject, object}) =>
                     fileName: file?.originalFilename
                 }, $meta))?.batch?.batchId;
             } else {
-                batchRow.batchId = (await add({objectParams, ...rest}, $meta))?.batch?.batchId;
+                batchRow.batchId = (await add({[`${object}`]: objectParams, ...rest}, $meta))?.batch?.batchId;
             }
             return {
                 ...await fetch({batchRow}, $meta),
