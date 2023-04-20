@@ -1,3 +1,12 @@
+# [8.22.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.21.0...v8.22.0) (2023-04-20)
+
+
+### Features
+
+* **CBI-1688:** api param conversion passed to db procedures ([#10](https://github.com/softwaregroup-bg/ut-model/issues/10)) ([def1473](https://github.com/softwaregroup-bg/ut-model/commit/def14734c7723bcc0375ee77e39f07f4c05a518d))
+
+
+
 # [8.21.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.20.1...v8.21.0) (2023-04-05)
 
 
