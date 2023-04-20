@@ -20,15 +20,16 @@ module.exports = ({subject, object}) =>
         }
     }) => ({
         async [`${subject}.${object}.import`]({
-            [`${object}`]: {
+            [`${object}`]: objectParams,
+            ...rest
+        }, $meta) {
+            let importResult;
+            let {
                 file,
                 conversion,
                 format,
                 ...objectRest
-            },
-            ...rest
-        }, $meta) {
-            let importResult;
+            } = objectParams;
             const batchRow = {};
             if (file?.originalFilename) {
                 format = format || extname(file?.originalFilename)?.slice(1) || 'csv';
@@ -79,11 +80,11 @@ module.exports = ({subject, object}) =>
                     }
                 }
                 batchRow.batchId = (await convert({
-                    ...objectRest,
+                    ...objectParams,
                     fileName: file?.originalFilename
                 }, $meta))?.batch?.batchId;
             } else {
-                batchRow.batchId = (await add({objectRest, ...rest}, $meta))?.batch?.batchId;
+                batchRow.batchId = (await add({[`${object}`]: objectParams, ...rest}, $meta))?.batch?.batchId;
             }
             return {
                 ...await fetch({batchRow}, $meta),
