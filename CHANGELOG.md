@@ -1,3 +1,12 @@
+## [8.22.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.0...v8.22.1) (2023-05-04)
+
+
+### Bug Fixes
+
+* **CBI-2221:** aml screening all filters not working ([#11](https://github.com/softwaregroup-bg/ut-model/issues/11)) ([104a2e7](https://github.com/softwaregroup-bg/ut-model/commit/104a2e79de9dc385e2339dc1947bdc48b397ef30))
+
+
+
 # [8.22.0](https://github.com/softwaregroup-bg/ut-model/compare/v8.21.0...v8.22.0) (2023-04-20)
 
 
