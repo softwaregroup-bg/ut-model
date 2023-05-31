@@ -1,3 +1,12 @@
+## [8.22.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.1...v8.22.2) (2023-05-31)
+
+
+### Bug Fixes
+
+* hide paging from report params ([6a47e83](https://github.com/softwaregroup-bg/ut-model/commit/6a47e8386f95a95b235759c572ae45901ef733c2))
+
+
+
 ## [8.22.1](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.0...v8.22.1) (2023-05-04)
 
 
