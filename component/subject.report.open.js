@@ -28,7 +28,7 @@ export default ({
                     const props = {
                         name: `${capital(reportId)}Report`,
                         schema: report?.schema,
-                        params: report?.params || Object.keys(report?.schema?.properties?.params?.properties).filter(name => !['pageNumber', 'pageSize'].includes(name)),
+                        params: report?.params || Object.keys(report?.schema?.properties?.params?.properties).filter(name => !['pageNumber', 'pageSize', 'paging'].includes(name)),
                         columns: report?.columns || Object.keys(report?.schema?.properties?.result?.properties),
                         validation: report?.validation,
                         resultSet,
