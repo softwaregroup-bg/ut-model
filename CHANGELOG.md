@@ -1,3 +1,12 @@
+## [8.22.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.2...v8.22.3) (2023-06-21)
+
+
+### Bug Fixes
+
+* **CBI-855:** add tooltip to download icon btn ([#12](https://github.com/softwaregroup-bg/ut-model/issues/12)) ([5e8c971](https://github.com/softwaregroup-bg/ut-model/commit/5e8c971aba96b52bce4ebc2c90ca2db809820464))
+
+
+
 ## [8.22.2](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.1...v8.22.2) (2023-05-31)
 
 
