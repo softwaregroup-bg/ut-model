@@ -67,7 +67,8 @@ export default ({
                         toolbar: [{
                             icon: 'pi pi-download',
                             permission: method,
-                            method
+                            method,
+                            tooltip: 'Download'
                         }].filter(item => item.method),
                         init,
                         filter: {layout: id},
