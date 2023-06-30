@@ -68,7 +68,8 @@ export default ({
                             icon: 'pi pi-download',
                             permission: method,
                             method,
-                            tooltip: 'Download'
+                            tooltip: 'Download',
+                            reactTooltip: true
                         }].filter(item => item.method),
                         init,
                         filter: {layout: id},
