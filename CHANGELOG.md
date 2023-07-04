@@ -1,3 +1,12 @@
+## [8.22.5](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.4...v8.22.5) (2023-07-04)
+
+
+### Bug Fixes
+
+* report download react tooltip ([#13](https://github.com/softwaregroup-bg/ut-model/issues/13)) ([1298ecb](https://github.com/softwaregroup-bg/ut-model/commit/1298ecbd365d0adbaa5af220f3268ca67ad8b21f))
+
+
+
 ## [8.22.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.3...v8.22.4) (2023-07-04)
 
 
