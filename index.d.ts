@@ -21,6 +21,7 @@ export type override<
 
 export type editor = Readonly<PropertyEditor>
 export type properties = Properties
+export type property = Properties['name']
 
 type fetch<Object extends string> = (params: {
     orderBy: {
