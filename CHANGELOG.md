@@ -1,3 +1,7 @@
+## [8.22.4](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.3...v8.22.4) (2023-07-04)
+
+
+
 ## [8.22.3](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.2...v8.22.3) (2023-06-21)
 
 
