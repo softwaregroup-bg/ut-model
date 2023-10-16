@@ -1,3 +1,12 @@
+## [8.22.6](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.5...v8.22.6) (2023-10-16)
+
+
+### Bug Fixes
+
+* use proper extensions ([65d297c](https://github.com/softwaregroup-bg/ut-model/commit/65d297c6c28a528e19f94e42df32ab91bb3ed94e))
+
+
+
 ## [8.22.5](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.4...v8.22.5) (2023-07-04)
 
 
