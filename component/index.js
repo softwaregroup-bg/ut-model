@@ -4,13 +4,13 @@ const models = {};
 
 module.exports = (objects, lib, override) => [
     function component(ut) {
-        const Edit = require('./Edit').default;
-        const page = require('./Page').default;
-        const subjectObjectBrowse = require('./subject.object.browse').default;
+        const Edit = require('./Edit.jsx').default;
+        const page = require('./Page.jsx').default;
+        const subjectObjectBrowse = require('./subject.object.browse.jsx').default;
         const subjectObjectOpen = require('./subject.object.open').default;
         const subjectObjectNew = require('./subject.object.new').default;
-        const subjectObjectReport = require('./subject.object.report').default;
-        const subjectReportOpen = require('./subject.report.open').default;
+        const subjectObjectReport = require('./subject.object.report.jsx').default;
+        const subjectReportOpen = require('./subject.report.open.jsx').default;
         const namespace = Array.from(new Set(mapObjects(ut, objects, param => 'component/' + param.subject)));
         const subjects = Array.from(new Set(mapObjects(ut, objects, param => param.subject)));
         return [

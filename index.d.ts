@@ -87,7 +87,7 @@ type modelObject<Subject extends string, Object extends string, ResultSet extend
             edit?: boolean | string;
         }
     },
-    editor?: EditorProps & {
+    editor?: Omit<EditorProps, 'cards'> & {
         noApi?: boolean
     },
     schema: Schema,
