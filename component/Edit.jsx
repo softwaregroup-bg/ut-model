@@ -63,7 +63,6 @@ export default ({
                     name: subjectObject,
                     methods,
                     value,
-                    toolbar,
                     ...editor,
                     onDropdown: names => portalDropdownList(names, utMeta()),
                     onInit: handleInit ? params => handleInit(params, utMeta()) : undefined,
