@@ -1,3 +1,12 @@
+## [8.22.7](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.6...v8.22.7) (2023-10-18)
+
+
+### Bug Fixes
+
+* remove global var ([6bc9ab8](https://github.com/softwaregroup-bg/ut-model/commit/6bc9ab868529f3a0ac1e96835f5535bb0305eaea))
+
+
+
 ## [8.22.6](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.5...v8.22.6) (2023-10-16)
 
 
