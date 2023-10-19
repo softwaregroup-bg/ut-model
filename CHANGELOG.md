@@ -1,3 +1,12 @@
+## [8.22.8](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.7...v8.22.8) (2023-10-19)
+
+
+### Bug Fixes
+
+* esm compatibility ([91580dc](https://github.com/softwaregroup-bg/ut-model/commit/91580dc869444f60070fc9227acf317e1b167f44))
+
+
+
 ## [8.22.7](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.6...v8.22.7) (2023-10-18)
 
 
