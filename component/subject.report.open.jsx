@@ -2,7 +2,7 @@
 import React from 'react';
 import Report from 'ut-prime/core/Report';
 
-import {capital} from '../lib';
+const capital = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 export default ({
     subject
