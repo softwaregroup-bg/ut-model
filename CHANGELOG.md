@@ -1,3 +1,12 @@
+## [8.22.9](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.8...v8.22.9) (2023-11-30)
+
+
+### Bug Fixes
+
+* use openapi ([4ba4e20](https://github.com/softwaregroup-bg/ut-model/commit/4ba4e2081a6a14af491117177649aaa609373c6c))
+
+
+
 ## [8.22.8](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.7...v8.22.8) (2023-10-19)
 
 
