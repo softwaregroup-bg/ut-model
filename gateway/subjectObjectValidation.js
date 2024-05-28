@@ -10,7 +10,7 @@ module.exports = ({
         get,
         add,
         edit,
-        remove,
+        delete: remove,
         report,
         import: importMethod,
         start
