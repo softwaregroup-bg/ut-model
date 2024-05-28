@@ -33,7 +33,7 @@ module.exports = ({
                 }),
                 result: joi.object().keys({
                     [object]: multiple,
-                    pagination
+                    pagination: paging
                 })
             }),
             [get]: () => ({
