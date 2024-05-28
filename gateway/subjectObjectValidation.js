@@ -68,7 +68,9 @@ module.exports = ({
                 params: joi.object().keys({
                     [keyField]: joi.array().items(bigintNotNull)
                 }),
-                result: multiple
+                result: joi.object().keys({
+                    [object]: multiple
+                })
             }),
             [report]: () => ({
                 description: `${objectTitle} Report`,
