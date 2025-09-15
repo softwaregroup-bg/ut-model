@@ -1,4 +1,3 @@
-
 module.exports = () => ({
     /**
      * Trims all string values in a record while preserving other data types
