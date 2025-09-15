@@ -4,7 +4,8 @@ const {transform} = require('stream-transform');
 
 module.exports = ({
     lib: {
-        convert
+        convert,
+        trimRecord
     }
 }) => ({
     // convert file from TXT format to TSV format without embedded tabs
@@ -19,7 +20,8 @@ module.exports = ({
         const transformer = transform(async function(record, callback) {
             try {
                 context.rows++;
-                record = await convert(record, object, conversion, context, $meta);
+                const trimmedRecord = trimRecord(record);
+                record = await convert(trimmedRecord, object, conversion, context, $meta);
                 if (record) {
                     callback(null, actorId + '\t' + record.join('\t') + '\n');
                 } else callback(null);
