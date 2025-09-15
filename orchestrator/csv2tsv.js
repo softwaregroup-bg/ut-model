@@ -4,7 +4,8 @@ const {transform} = require('stream-transform');
 
 module.exports = ({
     lib: {
-        convert
+        convert,
+        trimRecord
     }
 }) => ({
     /**
@@ -18,9 +19,7 @@ module.exports = ({
         const transformer = transform(async function(record, callback) {
             try {
                 context.rows++;
-                const trimmedRecord = record.map(value => 
-                    typeof value === 'string' ? value.trim() : value
-                );
+                const trimmedRecord = trimRecord(record);
                 record = await convert(trimmedRecord, object, conversion, context, $meta);
                 if (record) {
                     callback(null, actorId + '\t' + record.join('\t') + '\n');
