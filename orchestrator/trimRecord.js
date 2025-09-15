@@ -4,7 +4,7 @@ module.exports = () => ({
      * @param {Array} record - Array of values to process
      * @returns {Array} - Array with trimmed string values
      */
-    trimRecord: record => record.map(value => 
+    trimRecord: record => record.map(value =>
         typeof value === 'string' ? value.trim() : value
     )
 });
