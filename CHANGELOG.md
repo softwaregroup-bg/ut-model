@@ -1,3 +1,15 @@
+## [8.22.10](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.9...v8.22.10) (2025-09-15)
+
+
+### Bug Fixes
+
+* **CBI-999:** handle null/undefined record ([5c11b14](https://github.com/softwaregroup-bg/ut-model/commit/5c11b149893a1a33c1181b7b78073c91f74b23c9))
+* **CBI-999:** trim column values during import of files ([b7645b3](https://github.com/softwaregroup-bg/ut-model/commit/b7645b3af45301737ebeabec944a24cad40ced21))
+* **CBI-999:** trimRecord as lib function ([ae935f9](https://github.com/softwaregroup-bg/ut-model/commit/ae935f9195aa50064ad02c7526f2cc9bbf21fbe0))
+* **CBI-999:** wrap trimRecord in ut context ([5305460](https://github.com/softwaregroup-bg/ut-model/commit/5305460972acda0f5972e0d8860df0eeb10b4b7e))
+
+
+
 ## [8.22.9](https://github.com/softwaregroup-bg/ut-model/compare/v8.22.8...v8.22.9) (2023-11-30)
 
 
