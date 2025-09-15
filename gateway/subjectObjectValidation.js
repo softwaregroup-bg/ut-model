@@ -10,7 +10,7 @@ module.exports = ({
         get,
         add,
         edit,
-        remove,
+        delete: remove,
         report,
         import: importMethod,
         start
@@ -33,7 +33,7 @@ module.exports = ({
                 }),
                 result: joi.object().keys({
                     [object]: multiple,
-                    pagination
+                    pagination: paging
                 })
             }),
             [get]: () => ({
@@ -68,7 +68,9 @@ module.exports = ({
                 params: joi.object().keys({
                     [keyField]: joi.array().items(bigintNotNull)
                 }),
-                result: multiple
+                result: joi.object().keys({
+                    [object]: multiple
+                })
             }),
             [report]: () => ({
                 description: `${objectTitle} Report`,
